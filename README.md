@@ -126,7 +126,7 @@
 |------|----|-------|
 |image|string||
 |product_id|references|foreign_key: true|
-- belongs_to: user
+- belongs_to: product
 
 ## likes テーブル
 |Column|Type|Options|
