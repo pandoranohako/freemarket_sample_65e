@@ -88,25 +88,13 @@
 |user_id|references|foreign_key: true|
 - belongs_to: user
 
-## large_categorys テーブル
+## categorys テーブル
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
+|ancestry|string|index: true|
 - has_many: products
-
-## middle_categorys テーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-|large_category_id|references|foreign_key: true|
-- belongs_to: large_category
-
-## small_categorys テーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-|middle_category_id|references|foreign_key: true|
-- belongs_to: middle_category
+- has_ancestry
 
 ## sizes テーブル
 |Column|Type|Options|
