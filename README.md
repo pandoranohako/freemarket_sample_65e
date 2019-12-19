@@ -13,14 +13,10 @@
 |birthday_yyyy_id|integer|null: false|
 |birthday_mm_id|integer|null: false|
 |birthday_dd_id|integer|null: false|
-|tel_number|integer|null: false|
 |authentication_number|integer|null: false|
-|address|string|null:false|
-|postal_number|integer|null: false|
-|building|string||
-|prefecture|string|null: false|
 - has_many: products, through: :user_products
 - has_one: card_infomation
+- has_one: shipping_address
 - has_one: identification_address
 - has_many: sns_credentials
 - has_many: likes
@@ -59,6 +55,17 @@
 |expriation_yyyy|integer|null: false|
 |expiration_mm|integer|null: false|
 |user_id|references|foreign_key: true|
+- belongs_to: user
+
+## shipping_addresses テーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|integer|null: false|
+|address|string|null: false|
+|building|string|null: false|
+|prefecture|string|null: false|
+|telephone|integer|null: false|
+|user_id|references|foregn_key: true|
 - belongs_to: user
 
 ## identification_addresses テーブル
