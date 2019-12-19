@@ -7,7 +7,7 @@
 |email|string|null: false|
 |password|string|null: false|
 |family_name|string|null: false|
-|first＿name|string|null: false|
+|first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday_yyyy_id|integer|null: false|
@@ -21,7 +21,7 @@
 |prefecture|string|null: false|
 - has_many: products, through: :user_products
 - has_one: card_infomation
-- has_one: identification_addresse
+- has_one: identification_address
 - has_many: sns_credentials
 - has_many: likes
 - has_many: user_products
@@ -42,14 +42,14 @@
 |large_category_id|references|foreign_key: true|
 |size_id|references|foregin_key: true|
 |brand_id|references|foreign_key: true|
-- has_many:   users, through: :user_products
+- has_many: users, through: :user_products
 - belongs_to: large_category
 - belongs_to: size
 - belongs_to: brand
-- has_one:    cart
-- has_many:   images
-- has_many:   likes
-- has_many:   user_products
+- has_one: cart
+- has_many: images
+- has_many: likes
+- has_many: user_products
 
 ## card_infomations テーブル
 |Column|Type|Options|
@@ -136,7 +136,7 @@
 - belongs_to: user
 - belongs_to: product
 
-## user_products テーブル
+## user_products テーブル （中間テーブル）
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
