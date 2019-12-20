@@ -20,7 +20,6 @@
 - has_one: identification_address, dependent: :destroy
 - has_many: sns_credentials, dependent: :destroy_all
 - has_many: likes
-- has_many: user_products
 
 ## products テーブル
 |Column|Type|Options|
