@@ -14,14 +14,13 @@
 |birthday_mm_id|integer|null: false|
 |birthday_dd_id|integer|null: false|
 |authentication_number|integer|null: false|
-- has_many: products, through: :user_products
+- has_many: products
 - has_one: card_infomation
 - has_one: shipping_address
 - has_one: identification_address
 - has_many: sns_credentials
 - has_many: likes
 - has_many: user_products
-
 
 ## products テーブル
 |Column|Type|Options|
@@ -35,10 +34,12 @@
 |shipping_date|string|null: false|
 |price|integer|null: false, limit: 999999|
 |likes_count|integer|default: 0|
+|user_id|references|foregin_key: true|
+|customer_id(user_id)|references|foreign_key: true|
 |large_category_id|references|foreign_key: true|
 |size_id|references|foregin_key: true|
 |brand_id|references|foreign_key: true|
-- has_many: users, through: :user_products
+- belongs_to: users
 - belongs_to: large_category
 - belongs_to: size
 - belongs_to: brand
@@ -124,14 +125,6 @@
 - belongs_to: product
 
 ## likes テーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|product_id|references|foreign_key: true|
-- belongs_to: user
-- belongs_to: product
-
-## user_products テーブル （中間テーブル）
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
