@@ -46,7 +46,6 @@
 - has_one: cart
 - has_many: images
 - has_many: likes
-- has_many: user_products
 
 ## card_infomations テーブル
 |Column|Type|Options|
