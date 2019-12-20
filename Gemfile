@@ -61,6 +61,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#SNS認証データ
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+gem 'omniauth-rails_csrf_protection'
+#ビューに必要なデータ
+gem 'haml-rails'
+gem 'font-awesome-sass'
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
