@@ -36,11 +36,11 @@
 |likes_count|integer|default: 0|
 |user_id|references|foregin_key: true|
 |customer_id(user_id)|references|foreign_key: true|
-|large_category_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
 |size_id|references|foregin_key: true|
 |brand_id|references|foreign_key: true|
-- belongs_to: users
-- belongs_to: large_category
+- belongs_to: user
+- belongs_to: category
 - belongs_to: size
 - belongs_to: brand
 - has_one: cart
