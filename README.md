@@ -10,9 +10,9 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birthday_yyyy_id|integer|null: false|
-|birthday_mm_id|integer|null: false|
-|birthday_dd_id|integer|null: false|
+|birthday_yyyy|integer|null: false|
+|birthday_mm|integer|null: false|
+|birthday_dd|integer|null: false|
 |authentication_number|integer|null: false|
 - has_many: products
 - has_one: card_infomation
