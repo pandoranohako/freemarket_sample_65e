@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_074113) do
+ActiveRecord::Schema.define(version: 2019_12_20_085604) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "password", default: "", null: false
+    t.string "family_name", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "family_name_kana", default: "", null: false
+    t.string "first_name_kana", default: "", null: false
+    t.integer "birthday_yyyy", default: 0, null: false
+    t.integer "birthday_mm", default: 0, null: false
+    t.integer "birthday_dd", default: 0, null: false
+    t.integer "authentication_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
