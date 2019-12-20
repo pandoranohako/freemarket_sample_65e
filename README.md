@@ -43,8 +43,8 @@
 - belongs_to: category
 - belongs_to: size
 - belongs_to: brand
-- has_one: cart
-- has_many: images
+- has_one: cart, dependent: :destroy
+- has_many: images, dependent: :destroy_all
 - has_many: likes
 
 ## card_infomations テーブル
