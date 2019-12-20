@@ -14,11 +14,11 @@
 |birthday_mm|integer|null: false|
 |birthday_dd|integer|null: false|
 |authentication_number|integer|null: false|
-- has_many: products
-- has_one: card_infomation
-- has_one: shipping_address
-- has_one: identification_address
-- has_many: sns_credentials
+- has_many: products, dependent: :destroy_all
+- has_one: card_infomation, dependent: :destroy
+- has_one: shipping_address, dependent: :destroy
+- has_one: identification_address, dependent: :destroy
+- has_many: sns_credentials, dependent: :destroy_all
 - has_many: likes
 - has_many: user_products
 
