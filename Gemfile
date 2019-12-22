@@ -83,3 +83,8 @@ gem 'font-awesome-sass'
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
+#画像関連
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
