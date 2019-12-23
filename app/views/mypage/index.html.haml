@@ -1,2 +1,14 @@
-%h1 Mypage#index
-%p Find me in app/views/mypage/index.html.haml
+-# %h1 Mypage#index
+-# %p Find me in app/views/mypage/index.html.haml
+
+-# 新規登録画面のマークアップ
+-# 新規ログイン画面ヘッダー
+%header.signup-header
+  %h1
+    = link_to root_path do
+      =image_tag  'fmarket_logo_red.svg'
+
+%main.signup-main
+  %section.signup-main__container
+    %h2.signup-main__head.signup-main__head--registration
+      新規会員登録
