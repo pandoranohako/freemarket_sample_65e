@@ -3,15 +3,19 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+  if Rails.env.development? || Rails.env.test? #開発とテストは今まで通りに
+    config.storage = :file
+  elsif Rails.env.production? #本番はS3に保存する
     config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
-      provider: 'AWS',
-      aws_access_key_id: Rails.application.secrets.aws_access_key_id,
-      aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
-      region: 'ap-northeast-1'
+      provider: 'AWS',     #AWSのアクセスキーとシークレットキーを環境変数で定義する
+      aws_access_key_id: Rails.application.credentials.aws[:access_key_id],          #credentails.ymlに鍵の本体がある
+      aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],  #credentails.ymlに鍵の本体がある
+      region: 'ap-northeast-1' #AWSで指定した地域
     }
 
-  config.fog_directory  = 'freemarketsample65e'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarketsample65e'
+    config.fog_directory  = 'freemarketsample65e' #バケット名
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarketsample65e'
+  end
 end
