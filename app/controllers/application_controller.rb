@@ -20,4 +20,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :password, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday_yyyy, :birthday_mm, :birthday_dd, :authentication_number])
   end
 
+  # TODO:リダイレクト先の分岐
+  def after_sign_up_path_for(resource)
+    root_path
+  end
+
+  # TODO:リダイレクト先の分岐
+  def after_sign_in_path_for(resource)
+    root_path
+  end  
+
 end
