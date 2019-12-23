@@ -22,6 +22,5 @@ Rails.application.routes.draw do
     patch 'users/passwords',       to: 'devise/passwords#update', as: :user_password
     put   'users/passwords',       to: 'devise/passwords#update'
     post  'users/passwords',       to: 'devise/passwords#create'
-
   end    
 end
