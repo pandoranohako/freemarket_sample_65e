@@ -129,3 +129,5 @@
 |product_id|references|foreign_key: true|
 - belongs_to: user
 - belongs_to: product
+
+<!-- masterデータ復旧作業 -->
