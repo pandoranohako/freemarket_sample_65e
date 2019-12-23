@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #マイページ
   devise_scope :user do
-    root "mypage#index"
+    root "users#index"
 
   # TODO:仮のURIを修正
     # session
@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     get   'password/edit',         to: 'devise/passwords#edit', as: :edit_user_password
     patch 'users/passwords',       to: 'devise/passwords#update', as: :user_password
     put   'users/passwords',       to: 'devise/passwords#update'
-    post  'users/passwords',       to: 'devise/passwords#create'
-  end    
+    post  'users/passwords',       to: 'devise/passwords#create'  
+  end
 end
