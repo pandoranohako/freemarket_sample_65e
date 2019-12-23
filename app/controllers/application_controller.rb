@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  #ストロングパラメータを使用する
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
@@ -14,6 +15,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+ #ストロングパラメータを使用するためにconfigure_permitted_parametersを定義  
   def  configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
