@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   #バリデーション設定       
   validates :name, presence: true
+
+  #アソシエーション
+  has_one :shipping_address
 end
