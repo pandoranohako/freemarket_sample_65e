@@ -29,6 +29,24 @@
           Googleで登録する
         .main__conect__lists__google__icon
 
+%footer.signup-footer
+  %nav
+    %ul.clearfix
+      %li
+        = link_to '#' do
+          プライバシーポリシー
+      %li
+        = link_to '#' do
+          メルカリ利用規約
+      %li
+        = link_to '#' do
+          特定商取引に関する表記
+  = link_to root_path, class: 'signup-footer__logo' do
+    = image_tag 'fmarket_logo_white.svg', alt: 'mercari', height: '65', width: '80'
+  %p
+    %small
+      © 2019 Mercari
+      
       -# 新規ログイン画面フッター
   .signup__footer
     .signup__footer__detail
