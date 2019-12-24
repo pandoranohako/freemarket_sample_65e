@@ -3,43 +3,42 @@
 
 -# 新規登録画面のマークアップ
 -# 新規ログイン画面ヘッダー
-%header.signup-header
-  %h1
-    = link_to root_path do
-      =image_tag  'fmarket_logo_red.svg', height: '49', width: '185'
+.signin__container
+  .signup__simple__header
+    .signup__simple__header__logo
+      = link_to root_path do
+        =image_tag  'fmarket_logo_red.svg', height: '100', width: '450'
 
--# 新規ログイン画面メイン
-%main.signup-main
-  %section.signup-main__container
-    %h2.signup-main__head.signup-main__head--registration
+  -# 新規登録メイン
+  .signup-index-main
+    .signup-index-main__head 
       新規会員登録
-    .signup-main__inner.signup-main__inner--registration-form
-      .signup-main__content
+    .signup-submit-button-form
+      .signup-index-mail-box
         = link_to '/signup/registration', class: 'signup-main__btn-default signup-main__btn-mail' do
           = icon 'far', 'envelope'
           メールアドレスで登録する
-    %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'signup-main__facebook-login' }
-      = icon 'fab', 'facebook-square'
-      Facebookで登録する
-    %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'signup-main__google-login' }
-      Googleで登録する
--# %form
--# 新規ログイン画面フッター
+      .signup-index-facebook-box
+        -# =omniauth-facebookのリンクを貼る
+        Facebookで登録する
+        = icon 'fab', 'facebook-square'
+          
+      .signup-index-google-box
+        -# =omniauth-google-oauth2のリンクを貼る
+        .main__conect__lists__google__btn
+          Googleで登録する
+        .main__conect__lists__google__icon
 
-%footer.signup-footer
-  %nav
-    %ul.clearfix
-      %li
-        = link_to '#' do
-          プライバシーポリシー
-      %li
-        = link_to '#' do
-          メルカリ利用規約
-      %li
-        = link_to '#' do
-          特定商取引に関する表記
-  = link_to root_path, class: 'signup-footer__logo' do
-    = image_tag 'fmarket_logo_white.svg', alt: 'mercari', height: '65', width: '80'
-  %p
-    %small
-      © 2019 Mercari
+      -# 新規ログイン画面フッター
+  .signup__footer
+    .signup__footer__detail
+      = link_to '#' do
+        プライバシーポリシー
+      = link_to '#' do
+        メルカリ利用規約
+      = link_to '#' do
+        特定商取引に関する表記
+    .signup__footer__logo
+      = link_to root_path, class: 'signup-footer__logo' do
+        = image_tag 'fmarket_logo_white.svg', alt: 'mercari', height: '65', width: '80'
+      %p© 2019 Mercari
