@@ -1,0 +1,14 @@
+@mixin flexColumn() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexRowBetween() {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexRowStart() {
+  display: flex;
+  justify-content: flex-start;
+}
