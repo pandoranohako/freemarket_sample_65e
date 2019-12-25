@@ -1,0 +1,22 @@
+.display-link {
+  position: fixed;
+  top: 600px;
+  right: 30px;
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+  padding: 25px 48px 0;
+  text-decoration: none;
+  background-color: #EA352D;
+
+  &__text {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    font-family: arial;
+  }
+
+  &__icon {
+    color: white;
+  }
+}
