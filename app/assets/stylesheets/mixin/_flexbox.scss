@@ -1,14 +1,34 @@
-@mixin flexColumn() {
+@mixin flex_column() {
   display: flex;
   flex-direction: column;
 }
 
-@mixin flexRowBetween() {
+@mixin flex_row_between() {
   display: flex;
   justify-content: space-between;
 }
 
-@mixin flexRowStart() {
+@mixin flex_row_start() {
   display: flex;
   justify-content: flex-start;
+}
+
+@mixin flex_row_end() {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@mixin flex_row_reverse() {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+@mixin flex_row_center() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex_row_wrap() {
+  display: flex;
+  flex-wrap: wrap;
 }
