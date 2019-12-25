@@ -1,0 +1,11 @@
+.header-app
+  .header-app__container
+    .header-app__container__title
+      スマホで かんたん<br>フリマアプリ
+    .header-app__container__text
+      メルカリはスマホカメラからすぐに出品できる<br>購入時も安心な独自システムのアプリです
+    .header-app__container__links
+      = link_to 'https://apps.apple.com/jp/app/id667861049?l=ja', class: 'header-app__container__links__link' do
+        = image_tag 'app-store.svg', alt: "app store", class: 'header-app__container__links__link__image'
+      = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'header-app__container__links__link' do
+        = image_tag 'google-play.svg', alt: "app store", class: 'header-app__container__links__link__image'
