@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, skip: :all
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, skip: :all,
+    controllers: {
+      registrations: 'users/registrations',
+    }
   #マイページ
   devise_scope :user do
-    root "users#index"
+    root "products#index"
 
   # TODO:仮のURIを修正
     # session
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
     post   'login',  to: 'devise/sessions#create',  as: :user_session
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
     # registration
-    get    'signup/registration', to: 'devise/registrations#new',    as: :new_user_registration
+    get    'signup',              to: 'users/registrations#index',   as: :start_user_registration
     patch  'users',               to: 'devise/registrations#update', as: :user_registration
     put    'users',               to: 'devise/registrations#update'
     delete 'users',               to: 'devise/registrations#destroy'
