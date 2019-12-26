@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   #アソシエーション
-  has_one :shipping_address
+  has_one  :shipping_address, dependent: :destroy
 end
