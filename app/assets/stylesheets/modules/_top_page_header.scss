@@ -3,6 +3,7 @@
   height: 100px;
   box-shadow:rgba(0, 0, 0, 0.18) 0px 2px 4px 0px;
   padding-top: 8px;
+  position: relative;
   z-index: 3;
 
   &__center {
@@ -66,7 +67,7 @@
             &__btn {
               display: none;
             }
-            
+
             &__icon {
               position: absolute;
               bottom: 13px;
