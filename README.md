@@ -31,7 +31,7 @@
 |shipping_how|string|null: false|
 |shipping_from|string|null: false|
 |shipping_date|string|null: false|
-|price|integer|null: false, limit: 999999|
+|price|integer|null: false|
 |likes_count|integer|default: 0|
 |user_id|references|foregin_key: true|
 |customer_id(user_id)|references|foreign_key: true|
