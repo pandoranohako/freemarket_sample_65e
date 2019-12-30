@@ -4,7 +4,9 @@
   background-color: $dark_gray;
   background-image: url(flea_market.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
 
   &__container {
     width: 750px;
@@ -13,7 +15,7 @@
     padding: 51px 40px;
     background-image: url(smartphone.png);
     background-repeat: no-repeat;
-    background-size: 300px 100%;
+    background-size: 130px 100%;
     background-position: right;
 
     &__title {
