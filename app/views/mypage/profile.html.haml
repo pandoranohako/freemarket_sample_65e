@@ -1,0 +1,19 @@
+= render 'shared/top_page_header'
+= render 'shared/breadcrumbs/mypage_profile'
+
+.profile-wrapper
+  = render 'mypage-sidebar'
+  .profile-wrapper__profile
+    .profile-wrapper__profile__header
+      プロフィール
+    = form_with(url: root_path, class: 'profile-wrapper__profile__form') do |f|
+      .profile-wrapper__profile__form__image
+        %img.profile-wrapper__profile__form__image__icon
+        = f.text_field :keyword, name: 'nickname', class: 'profile-wrapper__profile__form__image__input', placeholder: "例）真之介⭐️セール中"
+      .profile-wrapper__profile__form__content
+        = f.text_area :keyword, class: 'profile-wrapper__profile__form__content__input', placeholder: "例）こんにちは⭐️ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+        = f.submit "変更する", class: 'profile-wrapper__profile__form__content__btn'
+
+= render 'shared/top_page_footer_app'
+= render 'shared/top_page_footer'
+= render 'shared/display_btn'
