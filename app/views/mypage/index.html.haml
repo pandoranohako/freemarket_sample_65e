@@ -1,6 +1,3 @@
--# %h1 Mypage#index
--# %p Find me in app/views/mypage/index.html.haml
-
 -# 新規登録画面のマークアップ
 -# 新規ログイン画面ヘッダー
 .signin__container
@@ -18,16 +15,8 @@
         = link_to '/signup/registration', class: 'signup-main__btn-default signup-main__btn-mail' do
           = icon 'far', 'envelope'
           メールアドレスで登録する
-      .signup-index-facebook-box
-        -# =omniauth-facebookのリンクを貼る
-        Facebookで登録する
-        = icon 'fab', 'facebook-square'
-          
-      .signup-index-google-box
-        -# =omniauth-google-oauth2のリンクを貼る
-        .main__conect__lists__google__btn
-          Googleで登録する
-        .main__conect__lists__google__icon
+      %button.btn.btn-facebook Facebookで登録する
+      %button.btn.btn-google Googleで登録する
 
       -# 新規ログイン画面フッター
   .signup__footer
