@@ -1,0 +1,152 @@
+.header {
+  width: 100%;
+  height: 100px;
+  box-shadow:rgba(0, 0, 0, 0.18) 0px 2px 4px 0px;
+  padding-top: 8px;
+  position: relative;
+  z-index: 1;
+
+  &__center {
+    width: 1020px;
+    height: 100%;
+    margin: auto;
+
+    &__top {
+      width: 100%;
+      height: 40px;
+      @include flex_row_between();
+
+      &__left {
+        width: 134px;
+        height: 100%;
+        margin-right: 45px;
+
+        &__image {
+          margin: 0px;
+          padding: 0px;
+          width: 134px;
+          height: 36px;
+          line-height: center;
+        }
+      }
+
+      &__right {
+        width: 100%;
+        height: 100%;
+
+        &__form {
+          width: 100%;
+          height: 100%;
+          @include flex_row_end();
+          position: relative;
+
+          &__input {
+            width: 100%;
+            height: 40px;
+            background-color: $light_gray;
+            font-size: 16px;
+            line-height: 1.4em;
+            border-width: 1px;
+            border-style: solid;
+            border-color: $dark_gray;
+            border-image: initial;
+            border-radius: 4px;
+            outline: none;
+            padding: 0px 50px 0px 10px;
+          }
+
+          &__label {
+            background-color: transparent;
+            cursor: pointer;
+            height: 40px;
+            right: 0px;
+            top: 0px;
+            width: 40px;
+            padding: 0px;
+
+            &__btn {
+              display: none;
+            }
+
+            &__icon {
+              position: absolute;
+              bottom: 13px;
+              right: 13px;
+              border-style: solid;
+              border-width: 0;
+            }
+          } 
+        }
+      }
+    }
+
+    &__bottom {
+      width: 100%;
+      height: 44px;
+      padding-top: 8px;
+      @include flex_row_between();
+
+      &__left {
+        @include flex_row_start();
+      
+        &__link {
+          text-decoration: none;
+          color: black;
+          margin: 0 10px 0 5px;
+          @include flex_row_reverse();
+
+          &__icon {
+            color: $main_red;
+            line-height: 36px;
+          }
+
+          &__text {
+            font-size: 14px;
+            padding-left: 5px;
+            line-height: 36px;
+          }
+        }
+      }
+      &__right {
+        @include flex_row_end();
+
+        &__link {
+          text-decoration: none;
+          color: black;
+          margin: 0 14px 0 14px;
+          @include flex_row_reverse();
+
+          &__icon {
+            color: $dark_gray;
+            line-height: 36px;
+            margin-right: 10px;
+          }
+
+          &__text {
+            font-size: 14px;
+            line-height: 36px;
+          }
+        }
+
+        &__mypage-link {
+          text-decoration: none;
+          color: black;
+          margin: 0 14px 0 14px;
+          @include flex_row_reverse();
+
+          &__text {
+            font-size: 14px;
+            line-height: 36px;
+          }
+
+          &__image {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            line-height: 36px;
+          }
+        }
+      }
+    }
+  }
+}
