@@ -27,6 +27,8 @@
     background-repeat: no-repeat;
     background-size: 130px 100%;
     background-position: right;
+    position: relative;
+    z-index: 1;
 
     &__title {
       width: 417.2px;
