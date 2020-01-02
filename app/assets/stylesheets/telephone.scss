@@ -1,6 +1,6 @@
 .progress-bar2 {
   background: #f5f5f5;
-  padding: 40px 0 0 80px;
+  padding: 40px 0 0 44px;
   border: 0;
   display: inline-block;
   vertical-align: top;
@@ -8,8 +8,8 @@
   text-align: center;
 }
 .progress-bar2__active {
-  font-weight: 600;
-  color: #ea352d;
+  color: #888;
+  margin: 0 40px 0 0;
   min-width: 60px;
   position: relative;
   z-index: 1;
@@ -172,6 +172,5 @@
     }
   } 
 }
-
 // ここまでprogressbar
 
