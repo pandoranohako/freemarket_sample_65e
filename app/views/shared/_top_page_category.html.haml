@@ -27,6 +27,10 @@
     .main__center__products
       - @products.each do |product|
         = link_to root_path, class: 'main__center__products__product' do
+          - @images.each do |image|
+            - if product.id == image.product_id
+              = image_tag "#{image.image}", class: 'main__center__products__product__image'
+              - break
           .main__center__products__product__price
             = "¥#{product.price}"
           .main__center__products__product__name
