@@ -1,0 +1,12 @@
+.footer-app
+  .footer-app__container
+    .footer-app__container__title
+      スマホでかんたんフリマアプリ
+    .footer-app__container__text
+      今すぐ無料ダウンロード！
+    .footer-app__container__links
+      = image_tag 'logo_red.svg', class: 'footer-app__container__links__logo'
+      = link_to 'https://apps.apple.com/jp/app/id667861049?l=ja', class: 'footer-app__container__links__link' do
+        = image_tag 'app-store.svg', alt: "app store", class: 'footer-app__container__links__link__image'
+      = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'footer-app__container__links__link' do
+        = image_tag 'google-play.svg', alt: "app store", class: 'footer-app__container__links__link__image'

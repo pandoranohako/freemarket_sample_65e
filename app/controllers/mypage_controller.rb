@@ -19,5 +19,8 @@ class MypageController < ApplicationController
 
   def show
   end
+
+  def profile
+  end
 end
 
