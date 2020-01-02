@@ -1,21 +1,29 @@
-%h2 ユーザー情報登録
-= form_for(@user, url: user_registration_path) do |f|
+%h2 会員情報入力
+    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+      = devise_error_messages!
   = render "devise/shared/error_messages", resource: @user
   .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    ニックネーム
+    %span 必須 
+    %br
+    = f.text_field  :name, autofocus: true, maxlength: "6", placeholder: "例)フリマ太郎"
   .field
-    = f.label :password
+    メールアドレス
+    %span 必須
+    %br
+    = f.email_field :email, class: 'single-form', placeholder: "PC・携帯どちらでも可"
+  .field
+    パスワード
     - if @minimum_password_length
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
-    = f.password_field :password, autocomplete: "new-password"
+     = f.password_field :password, autocomplete: "off", placeholder: "６文字以上"
   .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
+    パスワード（確認)
+    %span 必須
+    %br
+    = f.password_field :password_confirmation, autocomplete: "off", placeholder: "６文字以上"
+
     = f.submit "次へ進む"
 = render "devise/shared/links"
