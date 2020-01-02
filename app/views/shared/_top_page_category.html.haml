@@ -25,3 +25,9 @@
         もっとみる
         = icon('fas', 'chevron-right', class: 'main__center__top__link__icon')
     .main__center__products
+      - @products.each do |product|
+        = link_to root_path, class: 'main__center__products__product' do
+          .main__center__products__product__price
+            = "¥#{product.price}"
+          .main__center__products__product__name
+            = product.name
