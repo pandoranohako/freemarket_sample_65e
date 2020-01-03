@@ -23,7 +23,7 @@
     パスワード（確認)
     %span 必須
     %br
-    = f.password_field :password_confirmation, autocomplete: "off", placeholder: "６文字以上"
+    = f.password_field :authentication_number, autocomplete: "off", placeholder: "６文字以上"
 
     = f.submit "次へ進む"
 = render "devise/shared/links"
