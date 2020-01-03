@@ -1,41 +1,43 @@
 .signup-wrapper{
-background-color: #f5f5f5;
-}
+  background-color: #f5f5f5;
+  }
+  
+  .single-header{
+    height: 128px;
+    text-align: center;
+    background: #f5f5f5;
+    &__logo{
+      margin: 40px 0 0;
+      display: inline-block;
+      width: 150px;
+      height: 49px;
+      line-height: 49px;
+      }
+  }
 
-.single-header{
-  height: 128px;
-  text-align: center;
-  background: #f5f5f5;
-  &__logo{
-    margin: 40px 0 0;
-    display: inline-block;
-    width: 150px;
-    height: 49px;
-    line-height: 49px;
-    }
-}
 
 .progress-bar {
   background: #f5f5f5;
-  padding: 40px 0 0 80px;
+  padding: 40px 0 0 44px;
   border: 0;
   display: inline-block;
   vertical-align: top;
   font-size: 0;
   text-align: center;
-  .progress-bar__active {
-    font-weight: 600;
-    color: #ea352d;
+  &__active {
+    color: #888;
+    margin: 0 40px 0 0;
     min-width: 60px;
     position: relative;
     z-index: 1;
     display: inline-block;
     font-size: 12px;
+    width: 80px;
     &__status {
       background: #ea352d;
       width: 12px;
       height: 12px;
-      margin: 8px auto 0;
+      margin: 15px auto 0;
       border-radius: 50%;
       &::after {
         content: '';
@@ -49,128 +51,152 @@ background-color: #f5f5f5;
         background: #ccc;
       }
     }
-  }
-}
-
-.progress-bar__active__phone-number{
-  margin: 0 54px 0 0;
-  font-size: 12px;
-  color: #888;
-  display: inline-block;
-  z-index: 1;
-  position: relative;
-
-.progress-bar__active__status__phone-number{
-  width: 12px;
-  height: 12px;
-  margin: 8px auto 0;
-  border-radius: 50%;
-  background: #ccc;
-}
-}
-
-.progress-bar__active__address{
-  margin: 0 40px 0 -38px;
-  font-size: 12px;
-  color: #888;
-  display: inline-block;
-  z-index: 1;
-  position: relative;
-  .progress-bar__active__status__address{
-    width: 12px;
-    height: 12px;
-    margin: 8px auto 0;
-    border-radius: 50%;
-    background: #ccc;
-    &::before{
-    right: 50%;
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    z-index: -1;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: #ccc;
-    &::after{
-      content: '';
-    left: 50%;
-    position: absolute;
-    bottom: 5px;
-    z-index: -1;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: #ccc;
-    }
-    }
-  }
-}
-
-.progress-bar__active__payment{
-  margin: 0 40px 0 0;
-  font-size: 12px;
-  color: #888;
-  display: inline-block;
-  z-index: 1;
-  position: relative;
-  .progress-bar__active__status__payment{
-    width: 12px;
-    height: 12px;
-    margin: 8px auto 0;
-    border-radius: 50%;
-    background: #ccc;
-    &::before{
-      right: 50%;
-      content: '';
-      position: absolute;
-      bottom: 5px;
-      z-index: -1;
-      display: block;
-      width: 187%;
-      height: 2px;
+    &__phone-number {
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      color: #888;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      width: 90px;
+      }
+    &__status__phone-number { 
+      width: 12px;
+      height: 12px;
+      margin: 15px auto 0;
+      border-radius: 50%;
       background: #ccc;
-      &::after{
+      &::before {
+        right: 50%;
         content: '';
-      left: 50%;
-      position: absolute;
-      bottom: 5px;
-      z-index: -1;
-      display: block;
-      width: 100%;
-      height: 2px;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+      &::after {
+        content: '';
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+    }
+    &__address {
+      font-weight: 600;
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      color: #888;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      width: 100px;
+      }
+    &__status__address {
+      width: 12px;
+      height: 12px;
+      margin: 15px auto 0;
+      border-radius: 50%;
       background: #ccc;
+      &::before {
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
       }
+      &::after {
+        content: '';
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
       }
+    }
+    &__payment {
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      color: #888;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      width: 80px;
+    }
+    &__status__payment {
+      width: 12px;
+      height: 12px;
+      margin: 15px auto 0;
+      border-radius: 50%;
+      background: #ccc;
+      &::before {
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+      &::after {
+        content: '';
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+    }
+    &__complete {
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      color: #888;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      width: 80px;
+    }
+    &__status__complete {
+      width: 12px;
+      height: 12px;
+      margin: 15px auto 0;
+      border-radius: 50%;
+      background: #ccc;
+      &::before {
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+    } 
   }
 }
 
-.progress-bar__active__complete{
-  margin: 0 40px 0 0;
-  font-size: 12px;
-  color: #888;
-  display: inline-block;
-  z-index: 1;
-  position: relative;
-  .progress-bar__active__status__complete   {
-    width: 12px;
-    height: 12px;
-    margin: 8px auto 0;
-    border-radius: 50%;
-    background: #ccc;
-    &::before{
-      right: 50%;
-      content: '';
-      position: absolute;
-      bottom: 5px;
-      z-index: -1;
-      display: block;
-      width: 317%;
-      height: 2px;
-      background: #ccc;
-      }
-  }
-}
+
 
 .single-main {
   display: block;

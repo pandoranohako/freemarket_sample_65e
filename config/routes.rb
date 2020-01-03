@@ -20,4 +20,4 @@ Rails.application.routes.draw do
       get 'telephone'
     end
   end
-end
+
