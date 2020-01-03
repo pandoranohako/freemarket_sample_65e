@@ -1,0 +1,66 @@
+.signup-wrapper
+  .single-header
+    .single-header__logo
+      = image_tag "fmarket_logo_red.svg",height: '50', width: '150'
+
+    %nav.progress-bar3
+      %ol.clearfix
+        %li.progress-bar3__active
+          会員情報
+          .progress-bar3__active__status
+        %li.progress-bar3__active__phone-number
+          電話番号認証
+          .progress-bar3__active__status__phone-number
+        %li.progress-bar3__active__address
+          お届け先住所入力
+          .progress-bar3__active__status__address
+        %li.progress-bar3__active__payment
+          支払い方法
+          .progress-bar3__active__status__payment
+        %li.progress-bar3__active__complete
+          完了
+          .progress-bar3__active__status__complete
+  
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head__registration 住所入力
+      .l-single-head__registration__form
+        .l-single-content
+          .required-text 
+            お名前
+            %span 必須 
+          %input.single-form{name: "email", placeholder: "例)本田", type: "email", value: ""}/
+          %input.single-form{name: "email", placeholder: "例)真之介", type: "email", value: ""}/
+          .required-text 
+            お名前カナ
+            %span 必須
+          %input.single-form{name: "email", placeholder: "例)ホンダ", type: "email", value: ""}/
+          %input.single-form{name: "email", placeholder: "例)シンノスケ", type: "email", value: ""}/
+          .required-text 
+            郵便番号
+            %span 必須
+          %input.single-form{name: "email", placeholder: "例)123−4567", type: "email", value: ""}/
+          .required-text 
+            都道府県
+            %span 必須
+          %input.single-form{name: "email", placeholder: "例)埼玉県", type: "email", value: ""}/
+          .required-text 
+            市区町村
+            %span 必須
+          %input.single-form{name: "email", placeholder: "例)北本市緑区", type: "email", value: ""}/
+          .required-text 
+            番地
+            %span 必須
+          %input.single-form{name: "email", placeholder: "例)青山1−1−1", type: "email", value: ""}/
+          .any-text 
+            建物名
+            %span 任意
+          %input.single-form{name: "email", placeholder: "例)TECHビル103", type: "email", value: ""}/
+          .any-text 
+            電話 
+            %span 任意
+          %input.single-form{name: "email", placeholder: "例)09037641016", type: "email", value: ""}/
+
+          = link_to "次へ進む", "/registration/:id/payment", class: "next-btn"
+
+    = render "shared/single-footer"

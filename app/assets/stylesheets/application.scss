@@ -1,6 +1,12 @@
 @import "./reset";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
+@import "./new";//ログイン用scss
+@import "./index";//ログイン用scss
+@import "./telephone";//ログイン用scss
+@import "./address";//ログイン用scss
+@import "./payment";//ログイン用scss
+@import "./complete";//ログイン用scss
 @import "config/colors"; //色の関数
 @import "config/box-sizing_border-box";
 @import "mixin/flexbox"; //flexbox用関数
@@ -12,7 +18,7 @@
 @import "modules/top_page_footer";
 @import "modules/display_btn";
 //--------------------------------------
-@import "./mypage";//ログイン用scss
 @import "./mypage-sidebar";//testサイドバー
 @import "modules/profile";
 @import "modules/breadcrumbs" //パンくず
+
