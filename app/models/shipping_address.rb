@@ -6,5 +6,4 @@ class ShippingAddress < ApplicationRecord
   validates :address, presence: true, on: :validates_step3
   validates :prefecture, presence: true, on: :validates_step3
   validates :building, length: { maximum: 100 }, on: :validates_step3
-  validates :telephone, allow_blank: true, on: :validates_step3
 end
