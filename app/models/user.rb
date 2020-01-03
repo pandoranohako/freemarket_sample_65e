@@ -14,8 +14,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 6..128 },  format: { with: /\A(?=.*[^\d])+/ }, on: :validates_step1
   validates :family_name, presence: true, length: { maximum: 20 }, on: :validates_step1
   validates :first_name, presence: true, length: { maximum: 20 }, on: :validates_step1
-  validates :family_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'カタカナで入力して下さい。'}, on: :validates_step1
-  validates :first_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'カタカナで入力して下さい。'}, on: :validates_step1
+  validates :family_name_kana, presence: true, length: { maximum: 35 }, on: :validates_step1
+  validates :first_name_kana, presence: true, length: { maximum: 35 }, on: :validates_step1
   validates :birthday_yyyy, presence: true, on: :validates_step1
   validates :birthday_mm, presence: true, on: :validates_step1
   validates :birthday_dd, presence: true, on: :validates_step1  
@@ -26,8 +26,8 @@ class User < ApplicationRecord
   # user_registration3入力項目
   validates :family_name, presence: true, length: { maximum: 20 }, on: :validates_step3
   validates :first_name, presence: true, length: { maximum: 20 }, on: :validates_step3
-  validates :family_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'カタカナで入力して下さい。'}, on: :validates_step3
-  validates :first_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'カタカナで入力して下さい。'}, on: :validates_step3
+  validates :family_name_kana, presence: true, length: { maximum: 35 }, on: :validates_step3
+  validates :first_name_kana, presence: true, length: { maximum: 35 }, on: :validates_step3
 
   # 下記の記述が無いと、devise機能によりemailとpasswordのバリデーションが抜けられない
   protected
