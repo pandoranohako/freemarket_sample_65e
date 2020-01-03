@@ -13,8 +13,7 @@ left-content ul {
 }
 
 .left-content ul li {
-  // #renderで使う時はコメントアウトを外して下さい
-  // background-color: white;
+  background-color: white;
   padding: 16px;
   display: flex;
   align-items: center;
@@ -32,7 +31,7 @@ left-content ul {
 ul {
   display: block;
   list-style-type: disc;
-  margin-block-start: 1em;
+  // margin-block-start: 1em;  
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
@@ -45,8 +44,6 @@ li {
   justify-content: space-between;
   width: 280px;
   height: 48px;
-  // #renderで使う時はコメントアウトして下さい
-  background-color: lightgray; 
 }
 
 h4 {
