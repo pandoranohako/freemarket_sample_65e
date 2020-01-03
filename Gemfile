@@ -41,6 +41,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   #テストコード作成用Gem
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
   #自動デプロイツールCapistranoの導入
   gem 'capistrano'
   gem 'capistrano-rbenv'

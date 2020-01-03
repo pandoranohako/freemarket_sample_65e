@@ -10,12 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_085604) do
+ActiveRecord::Schema.define(version: 2019_12_29_065439) do
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_images_on_product_id"
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "condition", null: false
+    t.string "shipping_fee", null: false
+    t.string "shipping_how", null: false
+    t.string "shipping_from", null: false
+    t.string "shipping_date", null: false
+    t.integer "price", null: false
+    t.integer "likes_count", default: 0
+    t.bigint "user_id"
+    t.bigint "customer_id"
+    t.bigint "category_id"
+    t.bigint "size_id"
+    t.bigint "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["customer_id"], name: "index_products_on_customer_id"
+    t.index ["size_id"], name: "index_products_on_size_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
-    t.string "password", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "family_name", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "family_name_kana", default: "", null: false
@@ -33,4 +65,5 @@ ActiveRecord::Schema.define(version: 2019_12_20_085604) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "products"
 end
