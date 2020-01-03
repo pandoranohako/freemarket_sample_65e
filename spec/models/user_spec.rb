@@ -7,8 +7,8 @@ describe User do
       user.valid?
       expect(user.errors[:name]).to include("can't be blank")
     end
-    it "nameが20文字以上だと登録不可" do
-      user = build(:user, name: "亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜")
+    it "nameが21文字以上だと登録不可" do
+      user = build(:user, name: "亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜亜")
       user.valid?
       expect(user.errors[:name][0]).to include("is too long")
     end
