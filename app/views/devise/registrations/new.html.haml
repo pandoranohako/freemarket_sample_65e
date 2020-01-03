@@ -1,6 +1,6 @@
 %h2 会員情報入力
-    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
-      = devise_error_messages!
+= form_with model: @user, url: user_registration_path, local: true do |f|
+  = devise_error_messages!
   = render "devise/shared/error_messages", resource: @user
   .field
     ニックネーム
@@ -18,12 +18,12 @@
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
-     = f.password_field :password, autocomplete: "off", placeholder: "６文字以上"
+    = f.password_field :password, autocomplete: "off", placeholder: "６文字以上"
   .field
     パスワード（確認)
     %span 必須
     %br
     = f.password_field :authentication_number, autocomplete: "off", placeholder: "６文字以上"
 
-    = f.submit "次へ進む"
+    = f.submit "Log in"
 = render "devise/shared/links"
