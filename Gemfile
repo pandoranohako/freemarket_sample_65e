@@ -42,6 +42,7 @@ group :development, :test do
   #テストコード作成用Gem
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'faker'
   gem 'factory_bot_rails'
   gem 'pry-rails'
   #自動デプロイツールCapistranoの導入
