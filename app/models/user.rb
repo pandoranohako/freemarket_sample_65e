@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :birthday_dd, presence: true, on: :validates_step1  
 
   # user_registration2入力項目
-  validates :telephone, presence: true, format: { with: VALID_PHONE_REGEX, message: '有効ではありません。'}, on: :validates_step2
+  validates :telephone, presence: true, on: :validates_step2
 
   # user_registration3入力項目
   validates :family_name, presence: true, length: { maximum: 20 }, on: :validates_step3
