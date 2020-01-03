@@ -10,6 +10,7 @@ FactoryBot.define do
     shipping_date         {"hoge"}
     price                 {1000}
     likes_count           {0}
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 
 end
