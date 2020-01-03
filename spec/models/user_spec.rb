@@ -73,7 +73,6 @@ describe User do
       user.valid?
       expect(user.errors[:first_name][0]).to include("is too long")
     end
-    end
     it "family_name_kanaが空だと登録不可" do
       user = build(:user, family_name_kana: nil)
       user.valid?
