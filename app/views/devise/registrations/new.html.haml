@@ -15,27 +15,15 @@
   .field
     パスワード
     - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
     %br/
-    = f.password_field :password, autocomplete: "off", placeholder: "7文字以上"
+    = f.password_field :password, autocomplete: "off", placeholder: "６文字以上"
   .field
     パスワード（確認)
     %span 必須
     %br
-    = f.password_field :authentication_number, autocomplete: "off", placeholder: "7文字以上"
-  .field
-    パスワード（確認)
-    %span 必須
-    %br
-    = f.password_field :authentication_number, autocomplete: "off", placeholder: "7文字以上"    
-  .field
-    パスワード（確認)
-    %span 必須
-    %br
-    = f.password_field :authentication_number, autocomplete: "off", placeholder: "7文字以上"
-  .field
-    パスワード（確認)
-    %span 必須
-    %br
-    = f.password_field :authentication_number, autocomplete: "off", placeholder: "7文字以上"
+    = f.password_field :authentication_number, autocomplete: "off", placeholder: "６文字以上"
+
     = f.submit "Log in"
 = render "devise/shared/links"
