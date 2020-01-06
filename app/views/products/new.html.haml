@@ -61,6 +61,7 @@
           .new-product-main__center__shipping__right--flex__title
             配送料の負担
           .new-product-main__center__shipping__right--flex__necessary
+  = form_with(url: root_path) do |f|
             必須
         = form_with(url: root_path, class: 'new-product-main__center__shipping__right__form') do |f|
           = f.select(:postage,[["送料込み(出品者負担)"],["着払い購入者負担"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__form__select')
