@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  #商品関連ページ  
+  resources :products, only: [:show]
 
   resources :mypage, only: [:index, :new] do
       get 'address'
