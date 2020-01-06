@@ -128,6 +128,8 @@
           また、出品をもちまして
           = link_to "加盟店規約", root_path, class: 'new-product-main__center__bottom__top__link'
           に同意したことになります。
+      = form_with(url: root_path, class: 'new-product-main__center__bottom__form') do |f|
+        = f.submit "出品する", class: 'new-product-main__center__bottom__form__submit-btn'
 
 
 
