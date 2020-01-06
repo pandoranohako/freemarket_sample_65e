@@ -5,4 +5,7 @@ class ProductsController < ApplicationController
     @images =Image.all
   end
 
+  def new
+  end
+
 end
