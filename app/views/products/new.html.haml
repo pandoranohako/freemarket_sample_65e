@@ -21,6 +21,21 @@
         = f.label :image, class: "new-product-main__center__image__form__label" do
           = f.text_field :content, class: "new-product-main__center__image__form__label__text-field", placeholder: "ドラッグアンドドロップまたはクリックしてファイルをアップロード"
           = f.file_field :image, type: "file" ,onchange: "previewFiles()", name: 'images[image][]', id: "upload-image", class: "upload-image new-product-main__center__image__form__label__file-field", 'data-image': 0
+    .new-product-main__center__product
+      .new-product-main__center__product--flex
+        .new-product-main__center__product--flex__title
+          商品名
+        .new-product-main__center__product--flex__necessary
+          必須
+      = form_with(url: root_path, class: 'new-product-main__center__product__form') do |f|
+        = f.text_field :keyword, class: 'new-product-main__center__product__form__text-field', placeholder: "商品名（必須40文字まで）"
+      .new-product-main__center__product--flex
+        .new-product-main__center__product--flex__title
+          商品の説明
+        .new-product-main__center__product--flex__necessary
+          必須
+      = form_with(url: root_path, class: 'new-product-main__center__product__form') do |f|
+        = f.text_area :keyword, class: 'new-product-main__center__product__form__text-area', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
 
 
