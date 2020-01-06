@@ -36,6 +36,25 @@
           必須
       = form_with(url: root_path, class: 'new-product-main__center__product__form') do |f|
         = f.text_area :keyword, class: 'new-product-main__center__product__form__text-area', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    .new-product-main__center__details
+      .new-product-main__center__details--flex
+        .new-product-main__center__details--flex__left
+          商品の詳細
+        .new-product-main__center__details--flex__right
+          .new-product-main__center__details--flex__right--flex
+            .new-product-main__center__details--flex__right--flex__title
+              カテゴリー
+            .new-product-main__center__details--flex__right--flex__necessary
+              必須
+          = form_with(url: root_path, class: 'new-product-main__center__details__right--flex__form') do |f|
+            = f.select :category_id,[["レディース"],["メンズ"],["ベビー・キッズ"],["インテリア・住まい・小物"],["本・音楽・ゲーム"],["おもちゃ・ホビー・キッズ"],["コスメ・香水・美容"],["家電・スマホ・カメラ"],["スポーツ・レジャー"],["ハンドメイド"],["チケット"],["自転車・オートバイ"],["その他"]],{prompt: "---"}, class:"category__frame new-product-main__center__details--flex__right__form__select", id:"category__frame", name: "item[category_id][]"
+          .new-product-main__center__details--flex__right--flex
+            .new-product-main__center__details--flex__right--flex__title
+              商品の状態
+            .new-product-main__center__details--flex__right--flex__necessary
+              必須
+          = form_with(url: root_path, class: 'new-product-main__center__details--flex__right__form') do |f|
+            = f.select :condition,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---"}, class: 'new-product-main__center__details--flex__right__form__select2'
 
 
 
