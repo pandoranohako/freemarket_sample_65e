@@ -5,4 +5,6 @@ class ProductsController < ApplicationController
     @images =Image.all
   end
 
+  def show
+  end  
 end
