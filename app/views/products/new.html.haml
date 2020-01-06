@@ -55,6 +55,35 @@
               必須
           = form_with(url: root_path, class: 'new-product-main__center__details--flex__right__form') do |f|
             = f.select :condition,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---"}, class: 'new-product-main__center__details--flex__right__form__select2'
+    .new-product-main__center__shipping
+      .new-product-main__center__shipping__left
+        .new-product-main__center__shipping__left__title
+          配送について
+        %label.new-product-main__center__shipping__left__label
+          = link_to root_path, class: 'new-product-main__center__shipping__left__label__link' do
+            = icon('fas', 'question-circle', class: 'new-product-main__center__shipping__left__label__link__icon')
+      .new-product-main__center__shipping__right
+        .new-product-main__center__shipping__right--flex
+          .new-product-main__center__shipping__right--flex__title
+            配送料の負担
+          .new-product-main__center__shipping__right--flex__necessary
+            必須
+        = form_with(url: root_path, class: 'new-product-main__center__shipping__right__form') do |f|
+          = f.select(:postage,[["送料込み(出品者負担)"],["着払い購入者負担"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__form__select')
+        .new-product-main__center__shipping__right--flex
+          .new-product-main__center__shipping__right--flex__title
+            発送元の地域
+          .new-product-main__center__shipping__right--flex__necessary
+            必須
+        = form_with(url: root_path, class: 'new-product-main__center__shipping__right__form') do |f|
+          = f.select(:postage,[["送料込み(出品者負担)"],["着払い購入者負担"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__form__select')
+        .new-product-main__center__shipping__right--flex
+          .new-product-main__center__shipping__right--flex__title
+            発送までの日数
+          .new-product-main__center__shipping__right--flex__necessary
+            必須
+        = form_with(url: root_path, class: 'new-product-main__center__shipping__right__form') do |f|
+          = f.select(:deliverdays,[["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__form__select')
 
 
 
