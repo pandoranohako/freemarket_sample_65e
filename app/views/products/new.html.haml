@@ -84,6 +84,35 @@
             必須
         = form_with(url: root_path, class: 'new-product-main__center__shipping__right__form') do |f|
           = f.select(:deliverdays,[["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__form__select')
+    .new-product-main__center__price
+      .new-product-main__center__price--flex
+        .new-product-main__center__price--flex__left
+          .new-product-main__center__price--flex__left__title
+            販売価格(300〜9,999,999)
+          %label.new-product-main__center__price--flex__left__label
+            = link_to root_path, class: 'new-product-main__center__price--flex__left__label__link' do
+              = icon('fas', 'question-circle', class: 'new-product-main__center__shipping__left__label__link__icon')
+        .new-product-main__center__price--flex__right
+          .new-product-main__center__price--flex__right__top
+            .new-product-main__center__price--flex__right__top--flex
+              .new-product-main__center__price--flex__right__top--flex__title
+                価格
+              .new-product-main__center__price--flex__right__top--flex__necessary
+                必須
+            .new-product-main__center__price--flex__right__top__right
+              ¥
+              = form_with(url: root_path, class: 'new-product-main__center__price--flex__right__top__right__form') do |f|
+                = f.text_field :keyword, placeholder: "例）300", class: 'new-product-main__center__price--flex__right__top__right__form__text-field'
+          .new-product-main__center__price--flex__right__center
+            .new-product-main__center__price--flex__right__center__left
+              販売手数料
+            .new-product-main__center__price--flex__right__center__right
+              \-
+          .new-product-main__center__price--flex__right__bottom
+            .new-product-main__center__price--flex__right__bottom__left
+              販売利益
+            .new-product-main__center__price--flex__right__bottom__right
+              \-
 
 
 
