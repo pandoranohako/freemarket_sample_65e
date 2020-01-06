@@ -9,6 +9,18 @@
       .new-product-main__center__content__right
       
       商品の情報を入力
+    .new-product-main__center__image
+      .new-product-main__center__image--flex
+        .new-product-main__center__image--flex__title
+          出品画像
+        .new-product-main__center__image--flex__necessary
+          必須
+      .new-product-main__center__image__explanation
+        最大10枚までアップロードできます
+      = form_with(url: root_path, class: 'new-product-main__center__image__form') do |f|
+        = f.label :image, class: "new-product-main__center__image__form__label" do
+          = f.text_field :content, class: "new-product-main__center__image__form__label__text-field", placeholder: "ドラッグアンドドロップまたはクリックしてファイルをアップロード"
+          = f.file_field :image, type: "file" ,onchange: "previewFiles()", name: 'images[image][]', id: "upload-image", class: "upload-image new-product-main__center__image__form__label__file-field", 'data-image': 0
 
 
 
