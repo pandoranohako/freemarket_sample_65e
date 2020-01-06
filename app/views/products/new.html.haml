@@ -113,6 +113,21 @@
               販売利益
             .new-product-main__center__price--flex__right__bottom__right
               \-
+    .new-product-main__center__bottom
+      .new-product-main__center__bottom__top
+        %p
+          = link_to "禁止されている出品", root_path, class: 'new-product-main__center__bottom__top__link'
+          、
+          = link_to "行為",root_path, class: 'new-product-main__center__bottom__top__link'
+          を必ずご覧ください。
+        %p
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to "偽ブランドの販売", root_path, class: 'new-product-main__center__bottom__top__link'
+          は犯罪であり処罰される可能性があります。
+        %p
+          また、出品をもちまして
+          = link_to "加盟店規約", root_path, class: 'new-product-main__center__bottom__top__link'
+          に同意したことになります。
 
 
 
