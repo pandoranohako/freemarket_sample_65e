@@ -8,8 +8,7 @@ class User < ApplicationRecord
   
   has_many :products
 
-#バリデーション設定   
-  # user_registration1入力項目    
+#バリデーション設定    
   validates :name, presence: true, length: { maximum: 15 }
   validates :family_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :first_name, presence: true, length: { maximum: 15 }, format: { with: kanji }

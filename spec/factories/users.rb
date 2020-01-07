@@ -6,10 +6,10 @@ FactoryBot.define do
     email {Faker::Internet.free_email}
     password {password}
     password_confirmation {password}
-    family_name  {"hoge"}     
-    first_name  {"hoge"}      
-    family_name_kana {"hoge"}      
-    first_name_kana   {"hoge"}      
+    family_name  {"山田"}     
+    first_name  {"真之介"}      
+    family_name_kana {"ヤマダ"}      
+    first_name_kana   {"シンノスケ"}      
     birthday_yyyy   {2000}  
     birthday_mm     {01}    
     birthday_dd      {01}    
