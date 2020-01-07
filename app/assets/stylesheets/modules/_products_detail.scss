@@ -11,6 +11,7 @@
   margin: 0 auto 8px;
   padding: 24px 40px 70px;
   background-color: white;
+
   &__head {
     font-size: 24px;
     font-weight: bold;
@@ -28,6 +29,7 @@
     &__products {
       width: 300px;
       height: 420px;
+
       &__image {
         min-width: 300px;
         max-width: 300px;
@@ -38,6 +40,7 @@
         width: 300px;
         height: 300px;
         @include flex_row_center;
+
         img {
           display: none;
           width: 100%;
@@ -48,6 +51,7 @@
           width: auto;
           height: 100%;
           margin: auto;
+
           &:first-of-type {
             display: block;
           }
@@ -66,6 +70,7 @@
           object-fit: cover;
           opacity: 0.4;
           cursor: pointer;
+
           &:hover, &:first-of-type {
             opacity: 1;
           }
@@ -348,6 +353,7 @@
 .other-items {
   width: 700px;
   margin: 0 auto;
+
   &__head {
     display: block;
     margin: 24px 0 8px 0;
@@ -359,7 +365,7 @@
 
   &__box {
     display: flex;
-    justify-content: flex-start;
+    @include flex_row_wrap();
     width: 100%;
     padding-bottom: 20px;
   }
@@ -367,15 +373,20 @@
 .card {
   margin: 0 20px 20px 0;
   display: inline-block;
-  width: 213px;
+  width: 220px;
   height: 330px;
   background-color: white;
+
+  &:nth-of-type(4n) {
+    margin-right: 0;
+  }
 
   &__photo {
     width: 100%;
     height: 220px;
     img {
       width: 100%;
+      height: 220px;
       object-fit: contain;
     }
   }
@@ -384,6 +395,7 @@
   height: 110px;
   padding: 16px;
   color: black;
+
   &__head {
     position: relative;
     width: 100%;
@@ -396,16 +408,18 @@
     height: 30px;
     margin-top: 8px;
     font-size: 12px;
-      &__price {
+
+    &__price {
         position: absolute;
         top: 0;
         left: 0;
         display: inline-block;
         height: 20px;
-        font-size: 20px;
+        font-size: 17px;
         font-weight: bold;
         line-height: 1;
       }
+
       &__like {
         position: absolute;
         top: 0;

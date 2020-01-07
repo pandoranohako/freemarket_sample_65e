@@ -175,20 +175,8 @@
             .card__body__content__like
               %i.far.fa-heart
               %span 2              
-      = link_to "#", class: 'card' do
-        .card__photo
-          = image_tag 'logo_white.svg'
-        .card__body
-          %h3.card__body__head
-            メルカリロゴ1（ホワイト）
-          .card__body__content
-            .card__body__content__price
-              ¥1,200
-            .card__body__content__like
-              %i.far.fa-heart
-              %span 2
       -# カテゴリー関連アイテム
-      = link_to "出品者さんのその他の出品", '#', class: "other-items__head"
+      = link_to "同じカテゴリのその他の出品", '#', class: "other-items__head"
       .other-items__box
       = link_to "#", class: 'card' do
         .card__photo
@@ -225,16 +213,4 @@
               ¥1,200
             .card__body__content__like
               %i.far.fa-heart
-              %span 2
-      = link_to "#", class: 'card' do
-        .card__photo
-          = image_tag 'logo_white.svg'
-        .card__body
-          %h3.card__body__head
-            メルカリロゴ1（ホワイト）
-          .card__body__content
-            .card__body__content__price
-              ¥1,200
-            .card__body__content__like
-              %i.far.fa-heart
-              %span 2                                          
+              %span 2                                
