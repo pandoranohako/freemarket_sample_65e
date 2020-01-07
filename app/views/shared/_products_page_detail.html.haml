@@ -8,12 +8,11 @@
         .detail__box__products
           .detail__box__products__image
             .detail__box__products__image--large
-              = image_tag 'fmarket_logo_red.svg', alt: '商品画像'
+              = image_tag "#{@image[0].image}"
             .detail__box__products__image--small
-              = image_tag 'fmarket_logo_red.svg', alt: '商品画像'
-              = image_tag 'fmarket_logo_red.svg', alt: '商品画像'
-              = image_tag 'fmarket_logo_red.svg', alt: '商品画像'
-              = image_tag 'fmarket_logo_red.svg', alt: '商品画像'
+              = image_tag "#{@image[0].image}"
+              - @product.images.each do |i|
+                = image_tag i.image
         -# 商品詳細表
         %table.detail__box__products
           %tbody.detail__box__products__table
@@ -21,7 +20,7 @@
               %th
                 出品者
               %td
-                = link_to '出品者名',"#"
+                = @product.user.name
                 .review
                   -# 評価数
                   %i.fas.fa-laugh-beam
@@ -51,37 +50,36 @@
               %th
                 商品のサイズ
               %td
-                M
+                = @product.size_id
             %tr
               %th
                 商品の状態
               %td
-                新品
+                = @product.condition
             %tr
               %th
                 配送料の負担
               %td
-                送料込み(出品者負担)
+                = @product.shipping_fee
             %tr
               %th
                 配送の方法
               %td
-                らくらくメルカリ便
+                = @product.shipping_how
             %tr
               %th
                 発送元地域
               %td
-                
-                = link_to '東京都','#'
+                = link_to "#{@product.shipping_from}" 
             %tr
               %th
                 発送日の目安
               %td
-                4~7日で発送
+                = @product.shipping_date
       -# 商品価格
       .detail__price
         %span
-          ¥1,999
+          = @product.price
         %span
           （税込）
         %span
