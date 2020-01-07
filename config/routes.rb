@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #マイページ
   root "products#index"
+  resources :products, only: [:new, :show] 
+
   resources :mypage do [:index]
     collection do
       get 'profile'         #プロフィール
     end
   end
-
-  #商品関連ページ  
-  resources :products, only: [:show]
 
   resources :mypage, only: [:index, :new] do
       get 'address'
@@ -20,6 +19,5 @@ Rails.application.routes.draw do
       get 'member'
       get 'payment'
       get 'telephone'
-    end
   end
-
+end

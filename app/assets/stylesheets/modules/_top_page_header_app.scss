@@ -1,7 +1,7 @@
 .header-app {
   width: 100%;
   height: 390px;
-  background-image: url(flea_market.jpg);
+  background-image: url("/flea_market.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0 4px;
@@ -22,7 +22,7 @@
     height: 390px;
     margin: auto;
     padding: 35px 40px;
-    background-image: url(smartphone.png);
+    background-image: url("/smartphone.png");
     background-repeat: no-repeat;
     background-size: 195px 100%;
     background-position: right top 4px;
