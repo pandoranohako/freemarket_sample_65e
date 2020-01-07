@@ -17,8 +17,10 @@
 @import "modules/top_page_footer_app";
 @import "modules/top_page_footer";
 @import "modules/display_btn";
+//商品関連ページscss---------------------------
+@import "modules/products_detail";
 //--------------------------------------
 @import "./mypage-sidebar";//testサイドバー
 @import "modules/profile";
-@import "modules/breadcrumbs" //パンくず
-
+@import "modules/breadcrumbs"; //パンくず
+@import "modules/new_product"; //商品出品ページ

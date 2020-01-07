@@ -7,21 +7,19 @@ Rails.application.routes.draw do
 
   
   root "products#index"
+  resources :products, only: [:new, :show] 
+
   resources :mypage do [:index]
     collection do
       get 'profile'         #プロフィール
     end
   end
 
-  resources :products, except: :show
 
   resources :mypage, only: [:index, :new] do
-      get 'address'
-      get 'complete'
       get 'login'
       get 'member'
       get 'payment'
       get 'telephone'
-    end
   end
-
+end
