@@ -3,11 +3,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  process resize_to_fit: [100, 100]
+
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development? || Rails.env.test? #環境によって保存先を変更
-    storage :fog                               #production(本番）環境
+    storage :file                               #developmentまたはtest環境
   else
-    storage :file                              #developmentまたはtest環境
+    storage :fog                               #production(本番）環境
   end
 
   # Override the directory where uploaded files will be stored.

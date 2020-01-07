@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #マイページ
+
+
+  
   root "products#index"
   resources :mypage do [:index]
     collection do
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :products, except: :show
 
   resources :mypage, only: [:index, :new] do
       get 'address'

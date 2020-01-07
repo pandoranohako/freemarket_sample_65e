@@ -1,0 +1,17 @@
+.product-exhibit
+  = render 'shared/single-header'
+  .product-exhibit-main
+    %h2
+      商品の情報の入力
+    = form_for @product do |f|
+      商品名#{f.text_field :name}
+      %br/
+      価格#{f.number_field :price}
+      %br/
+      #image-box
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :image, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+      = f.submit
