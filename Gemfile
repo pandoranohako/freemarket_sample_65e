@@ -92,3 +92,6 @@ end
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+
+#クレジットカード決済
+gem 'payjp'
