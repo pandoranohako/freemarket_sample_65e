@@ -121,7 +121,7 @@
 ## images テーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string||
+|image|string|null: false|
 |product_id|references|foreign_key: true|
 - belongs_to: product
 
