@@ -5,8 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          kanji = /\A[一-龥]+\z/
          kana = /\A([ァ-ン]|ー)+\z/
-  
+
+#アソシエーション
   has_many :products
+  has_one :shipping_address
 
 #バリデーション設定    
   validates :name, presence: true, length: { maximum: 15 }
