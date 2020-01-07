@@ -46,7 +46,7 @@
 - has_many: images, dependent: :destroy_all
 - has_many: likes
 
-## card_infomations テーブル
+## cards テーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
