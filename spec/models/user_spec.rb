@@ -22,13 +22,6 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include("can't be blank")
     end
 
-    it "emailが重複すると登録不可" do
-      create(:user)
-      another_user = build(:user)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
-    end
-
     it "emailが@を含まないと登録不可 " do
       user = build(:user, email: "aaaaa")
       user.valid?
