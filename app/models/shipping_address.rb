@@ -6,5 +6,5 @@ class ShippingAddress < ApplicationRecord
   validates :address, presence: true
   validates :prefecture, presence: true
   validates :building, length: { maximum: 100 }
-  validates :telephone, allow_blank: true
+  # validates :telephone, allow_blank: true
 end
