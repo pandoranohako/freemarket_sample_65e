@@ -105,6 +105,11 @@
           %i.fas.fa-lock
           あんしん・あんぜんへの取り組み
 
+          -# ユーザーによる商品削除
+          .seller
+            %p
+            = link_to 'この商品を削除する', product_path(@product), method: :delete
+
     -# コメント
     .comment
       %p.comment__note
@@ -211,4 +216,5 @@
               ¥1,200
             .card__body__content__like
               %i.far.fa-heart
-              %span 2                                
+              %span 2
+                                              

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #マイページ
   root "products#index"
-  resources :products, only: [:new, :show] 
+  resources :products, only: [:new, :show, :destroy] 
 
   resources :mypage do [:index]
     collection do
