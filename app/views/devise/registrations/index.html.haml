@@ -1,0 +1,34 @@
+-# 新規登録画面のマークアップ
+-# 新規ログイン画面ヘッダー
+.signin__container
+  .signup__simple__header
+    .signup__simple__header__logo
+      = link_to root_path do
+        =image_tag  'fmarket_logo_red.svg', height: '100', width: '450'
+
+  -# 新規登録メイン
+  .signup-index-main
+    .signup-index-main__head 
+      新規会員登録
+    .signup-submit-button-form
+      .signup-index-mail-box
+        = link_to '/users/sign_up', class: 'signup-main__btn-default signup-main__btn-mail' do
+          = icon 'far', 'envelope'
+          メールアドレスで登録する
+      %button.btn.btn-facebook Facebookで登録する
+      %button.btn.btn-google Googleで登録する
+
+      
+      -# 新規ログイン画面フッター
+  .signup__footer
+    .signup__footer__detail
+      = link_to '#' do
+        プライバシーポリシー
+      = link_to '#' do
+        メルカリ利用規約
+      = link_to '#' do
+        特定商取引に関する表記
+    .signup__footer__logo
+      = link_to root_path, class: 'signup-footer__logo' do
+        = image_tag 'fmarket_logo_white.svg', alt: 'mercari', height: '65', width: '80'
+      %p© 2019 Mercari

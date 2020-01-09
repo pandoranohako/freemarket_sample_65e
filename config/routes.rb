@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
+    get 'signup', to: 'users/registrations#index'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
