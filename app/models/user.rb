@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
 #アソシエーション
   has_many :products
-  has_one :shipping_address
+  has_one :address
 
 #バリデーション設定    
   validates :name, presence: true, length: { maximum: 15 }
