@@ -29,4 +29,16 @@ class CardController < ApplicationController
       end
     end
   end
+
+  def delete #PayjpとCardデータベースを削除します
+    card = Card.where(user_id: 1).first  #1 を　current_user.idにしたい
+    if card.blank?
+    else
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+    end
+      redirect_to action: "new"
+  end
 end
