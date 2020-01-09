@@ -10,54 +10,6 @@ class User < ApplicationRecord
   has_many :products
   has_one :address
   has_many :sns_credentials, dependent: :destroy
-
-#SNS認証 
-  def self.without_sns_data(auth)
-    user = User.where(email: auth.info.email).first
-
-      if user.present?
-        sns = SnsCredential.create(
-          uid: auth.uid,
-          provider: auth.provider,
-          user_id: user.id
-        )
-      else
-        user = User.new(
-          nickname: auth.info.name,
-          email: auth.info.email,
-        )
-        sns = SnsCredential.new(
-          uid: auth.uid,
-          provider: auth.provider
-        )
-      end
-      return { user: user ,sns: sns}
-    end
-
-   def self.with_sns_data(auth, snscredential)
-    user = User.where(id: snscredential.user_id).first
-    unless user.present?
-      user = User.new(
-        nickname: auth.info.name,
-        email: auth.info.email,
-      )
-    end
-    return {user: user}
-   end
-
-   def self.find_oauth(auth)
-    uid = auth.uid
-    provider = auth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    if snscredential.present?
-      user = with_sns_data(auth, snscredential)[:user]
-      sns = snscredential
-    else
-      user = without_sns_data(auth)[:user]
-      sns = without_sns_data(auth)[:sns]
-    end
-    return { user: user ,sns: sns}
-  end
   
 #バリデーション設定    
   validates :name, presence: true, length: { maximum: 15 }
@@ -69,4 +21,21 @@ class User < ApplicationRecord
   validates :birthday_yyyy, presence: true
   validates :birthday_mm, presence: true
   validates :birthday_dd, presence: true
+
+#SNS認証 
+def self.from_omniauth(auth)
+  sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+  # sns認証したことがあればアソシエーションで取得
+  # 無ければemailでユーザー検索して取得orビルド(保存はしない)
+  user = sns.user || User.where(email: auth.info.email).first_or_initialize(
+    nickname: auth.info.name,
+      email: auth.info.email
+  )
+  # userが登録済みの場合はそのままログインの処理へ行くので、ここでsnsのuser_idを更新しておく
+  if user.persisted?
+    sns.user = user
+    sns.save
+  end
+  { user: user, sns: sns }
+end
 end
