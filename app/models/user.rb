@@ -9,7 +9,8 @@ class User < ApplicationRecord
 #アソシエーション
   has_many :products
   has_one :address
-
+  has_many :sns_credentials, dependent: :destroy
+  
 #バリデーション設定    
   validates :name, presence: true, length: { maximum: 15 }
   validates :password, presence: true, length: { in: 7..128 },  format: { with: /\A(?=.*[^\d])+/ }
