@@ -13,8 +13,15 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path
+    # binding.pry
+    if @product.user_id === 1   #あとでcurrent_user.idを記入する
+      @product.destroy
+      redirect_to root_path
+      flash[:alert] = '商品を削除しました'
+    else
+      redirect_to root_path
+      flash[:alert] = '商品削除に失敗しました'
+    end
   end
 
   def edit
