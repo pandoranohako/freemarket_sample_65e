@@ -14,6 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+  params[:sns_auth] == 'true' ? params[:user][:password] = Devise.friendly_token : "";
     @user = User.new(sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
@@ -36,6 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.save
     sign_in(:user, @user)
   end
+
   
   # GET /resource/edit
   # def edit
