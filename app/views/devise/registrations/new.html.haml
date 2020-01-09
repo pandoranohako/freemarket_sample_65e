@@ -36,16 +36,19 @@
             %span.l-single-content__require 必須
             %br/
             = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-          .l-single-content__password
-            = f.label :password, 'パスワード'
-            %span.l-single-content__require 必須
-            %br/
-            = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
-          .l-single-content__password__confirmation
-            = f.label :password_confirmation, 'パスワード（確認）'
-            %span.l-single-content__require 必須
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上"
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .l-single-content__password
+              = f.label :password, 'パスワード'
+              %span.l-single-content__require 必須
+              %br/
+              = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
+            .l-single-content__password__confirmation
+              = f.label :password_confirmation, 'パスワード（確認）'
+              %span.l-single-content__require 必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上"
           .l-single-sub-head
             %h3.l-single-sub-head__left-text 本人確認
             %p.l-single-sub-head__text 
