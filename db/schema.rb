@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_29_065439) do
+ActiveRecord::Schema.define(version: 2020_01_09_040400) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "postal_code", default: 0, null: false
+    t.string "prefecture", default: "", null: false
+    t.string "city", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "building"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
@@ -55,7 +67,6 @@ ActiveRecord::Schema.define(version: 2019_12_29_065439) do
     t.integer "birthday_yyyy", default: 0, null: false
     t.integer "birthday_mm", default: 0, null: false
     t.integer "birthday_dd", default: 0, null: false
-    t.integer "authentication_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -65,5 +76,6 @@ ActiveRecord::Schema.define(version: 2019_12_29_065439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "products"
 end
