@@ -60,18 +60,6 @@ ActiveRecord::Schema.define(version: 2020_01_09_040400) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "postal_code", null: false
-    t.string "address", null: false
-    t.string "building", null: false
-    t.string "prefecture", null: false
-    t.integer "telephone", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -95,5 +83,4 @@ ActiveRecord::Schema.define(version: 2020_01_09_040400) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "products"
-  add_foreign_key "shipping_addresses", "users"
 end
