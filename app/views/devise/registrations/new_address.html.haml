@@ -24,7 +24,7 @@
   .signup-main3
     .signup-main3__head 発送元・お届け先住所入力
     .a-3
-      = form_with model: @shipping_address, class: :form, local: true do |f|
+      = form_with model: @address, class: :form, local: true do |f|
         = render "devise/shared/error_messages", resource: @address
 
         .signup3__form

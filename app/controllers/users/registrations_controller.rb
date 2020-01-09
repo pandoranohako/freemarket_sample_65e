@@ -69,7 +69,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:shipping_address).permit(:postal_code, :address, :prefecture, :building)
+    params.require(:address).permit(:postal_code, :address, :prefecture, :building)
   end  
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
