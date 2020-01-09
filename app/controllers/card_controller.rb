@@ -7,6 +7,7 @@ class CardController < ApplicationController
     card = Card.where(user_id: 1) #1をcurrent_user.idとしたい
     redirect_to action: "show" if card.exists?
   end
+
   def pay #payjpとCardのデータベース作成を実施します。
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key) #creddential.yml.enb から呼び出せないので仮置き
     if params['payjp-token'].blank?
@@ -41,4 +42,16 @@ class CardController < ApplicationController
     end
       redirect_to action: "new"
   end
+
+  def show #Cardのデータpayjpに送り情報を取り出します
+    card = Card.where(user_id: 1).first  #1 を　current_user.idにしたい
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
 end
