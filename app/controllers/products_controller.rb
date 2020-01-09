@@ -13,8 +13,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    if @product.user_id === 1   #あとでcurrent_user.idを記入する
-      @product.destroy
+    if @product.destroy
     # 削除に成功した時の処理
       redirect_to root_path
       flash[:alert] = '商品を削除しました'
