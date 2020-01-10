@@ -18,4 +18,7 @@ class PurchaseController < ApplicationController
     end
   end
 
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
 end
