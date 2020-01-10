@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_082800) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
-  
+
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "customer_id", null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_082800) do
     t.integer "birthday_yyyy", default: 0, null: false
     t.integer "birthday_mm", default: 0, null: false
     t.integer "birthday_dd", default: 0, null: false
+    t.integer "authentication_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
