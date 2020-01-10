@@ -1,0 +1,377 @@
+.mypage__main {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  width: 700px;
+
+  &__profile {
+    background-image: url("/bokeh.jpg");
+    position: relative;
+    height: 180px;
+    padding: 20px;
+    background-size: cover;
+    text-align: center;
+    // margin-top: 40px;
+    a{
+      text-decoration: none;
+    }
+  
+
+
+    &__link {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      color: #333;
+    }
+  }
+}
+
+      .mypage__main__profile__figure {
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+
+      .mypage__main__profile__name {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 600;
+      }
+
+      .mypage__main__profile__figure__data {
+        margin: 8px 0 0;
+        font-size: 1;
+      
+        .mypage__main__profile__figure__data__evaluation {
+          display: inline-block;
+          font-size: 14px;
+        }
+        .mypage__main__profile__figure__data__number {
+          display: inline-block;
+          font-size: 14px;
+          margin: 0 0 0 16px;
+        
+          .mypage__main__profile__figure__data__span {
+            margin: 0 0 0 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+          }
+        }
+      }
+      
+
+
+
+  .mypage__main__notification-todo {
+    width: 700px;
+    background-color: #fff;
+    margin: 0;
+    display: block;
+  
+    .mypage__main__notification-todo__tabs {
+      width: 700px;
+      height: 74px;
+      border: 0;
+      background: #eee;
+      font-size: 1;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+
+      .mypage__main__notification-todo__tabs__notification {
+        background-color: #fff;
+        width: 350px;
+        list-style: none;
+      
+        .mypage__main__notification-todo__tabs__notification__link {
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          text-decoration: none;
+          border-top: 2px solid #ea352d;
+          font-weight: bold;
+        
+          .mypage__main__notification-todo__tabs__notification__span {
+            position: absolute;
+            top: 3px;
+            right: 2px;
+            width: 24px;
+            height: 24px;
+            background: #ea352d;
+            text-align: center;
+            line-height: 24px;
+            color: #fff;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+      .mypage__main__notification-todo__tabs__todo {
+        width: 350px;
+        // height: 504.42px;
+        display: inline-block;
+        // text-align: center;
+        vertical-align: top;
+      
+        .mypage__main__notification-todo__tabs__todo__link {
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          text-decoration: none;
+          font-weight: bold;
+        
+
+          .mypage__main__notification-todo__tabs__todo__span {
+            top: 16px;
+            right: 2px;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ea352d;
+            text-align: center;
+            line-height: 24px;
+            color: #fff;
+            -webkit-transform: translate(0,-50%);
+            transform: translate(0, -50%);
+          }
+        }
+      }
+
+
+
+    .mypage__main__notification-todo__content {
+      display: block;
+    
+      .mypage__main__notification-todo__content__notification__li {
+        position: relative;
+        border-bottom: 1px solid #eee;
+      
+        .mypage__main__notification-todo__content__notification__link {
+          display: block;
+          min-height: 80px;
+          padding: 16px;
+          color: #333;
+          text-decoration: none;
+          position: relative;
+  
+          .mypage__main__notification-todo__content__notification__figure {
+            float: left;
+            margin: 0px;          
+
+            .mypage__main__notification-todo__content__notification__img {
+              display: block;
+              float: left;
+            }
+          }
+        }
+      }
+    }
+
+          .mypage__main__notification-todo__content__notification__text {
+            margin: 0 40px 0 68px;
+            text-align: left;
+            line-height: 1.5;
+          
+            .mypage__main__notification-todo__content__notiofication__text__time {
+              display: block;
+            
+              .mypage__main__notification-todo__content__time {
+                margin: 0 8px 0 0;
+                display: block;
+                display: block;
+                float: left;
+                margin-top: 5px;
+                color: #aaa;
+              }
+            }
+          }
+
+              .mypage__main__notification-todo__content__mark {
+                position: absolute;
+                right: 16px;
+                display: inline-block;
+                font-size: medium;
+              }
+
+    .mypage__main__notification-todo__content__list {
+      padding: 16px;
+    
+      .mypage__main__notification-todo__content__list__link {
+        display: block;
+        height: 56px;
+        margin: 0 auto;
+        background: #eee;
+        color: #333;
+        line-height: 56px;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+
+
+// .mypage__main__notification-todo__content__todo {
+//   display: none;
+// }
+// .mypage__main__notification-todo__content__todo__li {
+//   border-bottom: 1px solid #eee;
+//   position: relative;
+// }
+// .mypage__main__notification-todo__content__todo__link {
+//   display: block;
+//   min-height: 80px;
+//   padding: 16px;
+//   color: #333;
+//   text-decoration: none;
+//   touch-action: manipulation;
+// }
+// .mypage__main__notification-todo__content__todo__figure {
+//   position: relative;
+//   overflow: hidden;
+//   float: left;
+//   width: 48px;
+//   height: 48px;
+// }
+// .mypage__main__notification-todo__content__todo__img {
+//   position: absolute;
+//   top: 0;
+//   right: o;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 1;
+//   width: 100%;
+//   opacity: 1;
+//   -webkit-transition: opacity .3s;
+//   transition: opacity .3s;
+//   vertical-align: middle;
+// }
+// .mypage__main__notification-todo__content__todo__body {
+//   margin: 0 40px 0 68px;
+// }
+// .mypage__main__notification-todo__content__todo__body__text {
+//   overflow: hidden;
+//   display: block;
+//   display: -webkit-box;
+//   max-height: 4.4em;
+//   -webkit-line-clamp: 3;
+//   -webkit-box-orient: vertical;
+//   text-overflow: ellipsis;
+//   line-height: 1.5;
+// }
+// .mypage__main__notification-todo__content__todo__body__time {
+//   display: inline-block;
+//   color: #888;
+// }
+// .mypage__main__notification-todo__content__time {
+//   display: inline-block;
+//   font-family: 'icon-font';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-variant: normal;
+//   text-transform: none;
+//   line-height: 1;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   font-size: 16px;
+//   vertical-align: middle;
+// }
+// .mypage__main__notification-todo__content__todo__body__time__span {
+//   vertical-align: middle;
+// }
+
+
+
+
+        .mypage__main__product {
+          margin: 40px 0 0;
+          background: #fff;
+          width: 700px;
+        
+          .mypage__main__product__head {
+            background: #fafafa;
+            font-size: 16px;
+            line-height: 72px;
+            padding: 0 16px;
+            font-weight: bold;
+          }
+        }
+          .mypage__main__product__tabs {
+            border: 0;
+            background: #eee;
+            // font-size: 1;
+            display: block;
+            display: flex;
+          
+            .mypage__main__product__tabs__during-trading {
+              background: #fff;
+              width: 50%;
+              display: inline-block;
+              text-align: center;
+              vertical-align: top;
+            
+              .mypage__main__product__tabs__during-trading__link {
+                border-top: 2px solid #ea352d;
+                position: relative;
+                display: block;
+                color: #333;
+                font-size: 16px;
+                line-height: 72px;
+                text-decoration: none;
+                font-weight: bold;
+              }
+            }
+          }
+            .mypage__main__product__tabs__after-trading {
+              width: 50%;
+              display: inline-block;
+              text-align: center;
+              vertical-align: top;
+            
+              .mypage__main__product__tabs__after-trading__link {
+                display: inline-block;
+                color: #333;
+                font-size: 16px;
+                line-height: 72px;
+                text-decoration: none;
+                font-weight: bold;
+              }
+            }
+
+          .mypage__main__product__content {
+            height: 236px;
+            position: relative;
+          }
+            // .mypage__main__product__content__during-trading {
+            //   display: block;
+            // }
+          
+            .mypage__main__product__content__during-trading__text__img {
+              position: absolute;
+              top: 50px;
+              left: 310px;
+            }
+
+            .mypage__main__product__content__text {
+              text-align: center;
+              padding: 160px 0 60px;
+              // background-image: "logo_white.svg";
+              background-repeat: no-repeat;
+              background-position: center 40px;
+              background-size: 78px 85px;
+              font-size: 16px;
+              color: #ccc;
+            }
