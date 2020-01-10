@@ -1,10 +1,9 @@
 class CardController < ApplicationController
 
-
   require "payjp"
 
   def new
-    card = Card.where(user_id: 1) #1をcurrent_user.idとしたい
+    card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
   end
 
@@ -15,13 +14,11 @@ class CardController < ApplicationController
     else
       customer = Payjp::Customer.create(
       description: '登録テスト', #なくてもOK
-      # email: current_user.email, #なくてもOK
+      email: current_user.email, #なくてもOK
       card: params['payjp-token'],
-      # metadata: {user_id: current_user.id}
-      metadata: {user_id: 1}
+      metadata: {user_id: current_user.id}
       ) #念の為metadataにuser_idを入れましたがなくてもOK
-      # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      @card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       
       if @card.save
         redirect_to action: "show"
@@ -32,7 +29,7 @@ class CardController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    card = Card.find_by(user_id: 1)  #1 を　current_user.idにしたい
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
@@ -44,7 +41,7 @@ class CardController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    card = Card.find_by(user_id: 1)  #1 を　current_user.idにしたい
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new" 
     else
