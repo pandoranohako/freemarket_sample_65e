@@ -18,7 +18,15 @@ class PurchaseController < ApplicationController
     end
   end
 
+  private
+
   def set_product
     @product = Product.find(params[:product_id])
   end
+
+  def set_card
+    # card = Card.where(user_id: current_user.id).first　#ユーザー登録機能が実装されたらこちらを使う
+    card = Card.where(user_id: 1).first  
+  end
+
 end
