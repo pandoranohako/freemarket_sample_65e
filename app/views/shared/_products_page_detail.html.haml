@@ -1,0 +1,220 @@
+.wrapper
+  .detail-container
+    .detail
+      %h2.detail__head
+        商品タイトル
+      .detail__box
+        -# 商品画像
+        .detail__box__products
+          .detail__box__products__image
+            .detail__box__products__image--large
+              = image_tag "#{@image[0].image}"
+            .detail__box__products__image--small
+              = image_tag "#{@image[0].image}"
+              - @product.images.each do |i|
+                = image_tag i.image
+        -# 商品詳細表
+        %table.detail__box__products
+          %tbody.detail__box__products__table
+            %tr
+              %th
+                出品者
+              %td
+                = @product.user.name
+                .review
+                  -# 評価数
+                  %i.fas.fa-laugh-beam
+                  %span 100
+                  %i.fas.fa-meh
+                  %span 10
+                  %i.fas.fa-frown
+                  %span 0
+            %tr
+              %th カテゴリー
+              %td
+                = link_to '#' do
+                  大カテゴリ
+                = link_to '#' do
+                  %i.fas.fa-chevron-right
+                  中カテゴリ
+                = link_to '#' do
+                  %i.fas.fa-chevron-right
+                  小カテゴリ
+            %tr
+              %th
+                ブランド
+              %td
+                = link_to '#' do              
+                  ブランド名
+            %tr
+              %th
+                商品のサイズ
+              %td
+                = @product.size_id
+            %tr
+              %th
+                商品の状態
+              %td
+                = @product.condition
+            %tr
+              %th
+                配送料の負担
+              %td
+                = @product.shipping_fee
+            %tr
+              %th
+                配送の方法
+              %td
+                = @product.shipping_how
+            %tr
+              %th
+                発送元地域
+              %td
+                = link_to "#{@product.shipping_from}" 
+            %tr
+              %th
+                発送日の目安
+              %td
+                = @product.shipping_date
+      -# 商品価格
+      .detail__price
+        %span
+          = @product.price
+        %span
+          （税込）
+        %span
+          送料込み
+      = link_to '購入画面に進む', '#', class: 'detail__purchase-link'
+      -# 商品説明
+      .detail__description
+        商品説明のダミーテキストです
+      -# その他
+      .detail__others
+        .detail__others__left
+          = button_tag type: 'like!', class: 'detail__others__left__like' do
+            %i.far.fa-heart.like
+            %span
+              いいね!
+            -# TODO:like数の取得
+            %span
+              2
+          = link_to '#', class: 'detail__others__left__report' do
+            %i.far.fa-flag
+            不適切な商品の報告
+        = link_to '#', class: 'detail__others__right' do
+          %i.fas.fa-lock
+          あんしん・あんぜんへの取り組み
+
+          -# ユーザーによる商品削除
+          .seller
+            %p
+            = link_to 'この商品を削除する', product_path(@product), method: :delete
+
+    -# コメント
+    .comment
+      %p.comment__note
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      -# TODO:コメント機能実装
+      = form_tag '/', method: :get, class: 'comment__form' do
+        = text_area :item, :description, value: '', class: 'comment__form__body'
+        = submit_tag "コメントする", class: 'comment__form__action'
+
+    -# 商品ページリンク
+    .prev-next
+      = link_to '#', class: 'prev-next--left' do
+        %i.fas.fa-chevron-left
+        前の商品のダミーテキストです
+      = link_to '#', class: 'prev-next--right' do
+        次の商品のダミーテキストです
+        %i.fas.fa-chevron-right
+
+    -# SNSリンク
+    .sns-box
+      = link_to '#', class: 'sns-box__link' do
+        %i.fab.fa-facebook-square.sns-box__link__facebook
+      = link_to '#', class: 'sns-box__link' do
+        %i.fab.fa-twitter-square.sns-box__link__twitter
+      = link_to '#', class: 'sns-box__link' do
+        %i.fab.fa-pinterest-square.sns-box__link__pinterest
+
+    -# 関連アイテム
+    .other-items
+      -# ユーザー関連アイテム
+      = link_to "出品者さんのその他の出品", '#', class: "other-items__head"
+      .other-items__box
+      = link_to "#", class: 'card' do
+        .card__photo
+          = image_tag 'logo_white.svg'
+        .card__body
+          %h3.card__body__head
+            メルカリロゴ1（ホワイト）
+          .card__body__content
+            .card__body__content__price
+              ¥1,200
+            .card__body__content__like
+              %i.far.fa-heart
+              %span 2
+      = link_to "#", class: 'card' do
+        .card__photo
+          = image_tag 'logo_white.svg'
+        .card__body
+          %h3.card__body__head
+            メルカリロゴ1（ホワイト）
+          .card__body__content
+            .card__body__content__price
+              ¥1,200
+            .card__body__content__like
+              %i.far.fa-heart
+              %span 2
+      = link_to "#", class: 'card' do
+        .card__photo
+          = image_tag 'logo_white.svg'
+        .card__body
+          %h3.card__body__head
+            メルカリロゴ1（ホワイト）
+          .card__body__content
+            .card__body__content__price
+              ¥1,200
+            .card__body__content__like
+              %i.far.fa-heart
+              %span 2              
+      -# カテゴリー関連アイテム
+      = link_to "同じカテゴリのその他の出品", '#', class: "other-items__head"
+      .other-items__box
+      = link_to "#", class: 'card' do
+        .card__photo
+          = image_tag 'logo_white.svg'
+        .card__body
+          %h3.card__body__head
+            メルカリロゴ1（ホワイト）
+          .card__body__content
+            .card__body__content__price
+              ¥1,200
+            .card__body__content__like
+              %i.far.fa-heart
+              %span 2
+      = link_to "#", class: 'card' do
+        .card__photo
+          = image_tag 'logo_white.svg'
+        .card__body
+          %h3.card__body__head
+            メルカリロゴ1（ホワイト）
+          .card__body__content
+            .card__body__content__price
+              ¥1,200
+            .card__body__content__like
+              %i.far.fa-heart
+              %span 2
+      = link_to "#", class: 'card' do
+        .card__photo
+          = image_tag 'logo_white.svg'
+        .card__body
+          %h3.card__body__head
+            メルカリロゴ1（ホワイト）
+          .card__body__content
+            .card__body__content__price
+              ¥1,200
+            .card__body__content__like
+              %i.far.fa-heart
+              %span 2
+                                              

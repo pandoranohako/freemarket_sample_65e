@@ -1,3 +1,9 @@
+= render 'shared/top_page_header'
+= render 'shared/products_page_detail'
+= render 'shared/top_page_footer_app'
+= render 'shared/top_page_footer'
+
+-# 仮置きリンク　のちに= render 'shared/products_page_detail'に反映
 商品詳細画面
 = link_to product_purchase_index_path(@product.id) do
   [購入確認画面へ]
