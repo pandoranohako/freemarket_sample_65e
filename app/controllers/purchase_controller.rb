@@ -2,12 +2,10 @@ class PurchaseController < ApplicationController
 
   require 'payjp'
 
-  def index
-    # card = Card.where(user_id: current_user.id).first
-    card = Card.where(user_id: 1).first
   before_action :set_product, only: [:index, :pay, :done]
   before_action :set_card, only: [:index, :pay]
 
+  def index
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "card", action: "new"
