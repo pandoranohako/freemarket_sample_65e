@@ -46,14 +46,12 @@
 - has_many: images, dependent: :destroy_all
 - has_many: likes
 
-## card_infomations テーブル
+## cards テーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false|
-|security_code|integer|null: false|
-|expriation_yyyy|integer|null: false|
-|expiration_mm|integer|null: false|
-|user_id|references|foreign_key: true|
+|user_id|references|foreign_key: true| Userテーブルのid
+|customer_id|string|null: false| payjpの顧客id
+|card_id|string|null: false| payjpのデフォルトカードid
 - belongs_to: user
 
 ## shipping_addresses テーブル
@@ -118,7 +116,7 @@
 ## images テーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string||
+|image|string|null: false|
 |product_id|references|foreign_key: true|
 - belongs_to: product
 

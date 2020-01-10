@@ -13,7 +13,24 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #マイページ
   root "products#index"
-  resources :products, only: [:new, :show, :destroy] 
+  resources :products, only: [:show] do
+    resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
+  end
+
+  resources :card, only: [:new] do
+    collection do
+      get  'show',   to: 'card#show'
+      post 'pay',    to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
+
+  resources :products, only: [:new, :destroy] 
 
   resources :mypage do [:index]
     collection do

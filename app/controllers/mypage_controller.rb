@@ -17,9 +17,6 @@ class MypageController < ApplicationController
   def complete
   end
 
-  def show
-  end
-
   def profile
   end
 end

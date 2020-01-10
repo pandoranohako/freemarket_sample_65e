@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
 #アソシエーション
   has_many :products
+  has_many :cards
   has_one :address
   has_many :sns_credentials, dependent: :destroy
   
