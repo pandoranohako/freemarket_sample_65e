@@ -5,8 +5,7 @@ class PurchaseController < ApplicationController
   before_action :set_product, only: [:index, :pay, :done]
 
   def index
-    # card = Card.where(user_id: current_user.id).first　#ユーザー登録機能が実装されたらこちらを使う
-    card = Card.where(user_id: 1).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "card", action: "new"
@@ -20,8 +19,7 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    # card = Card.where(user_id: current_user.id).first　#ユーザー登録機能が実装されたらこちらを使う
-    card = Card.where(user_id: 1).first 
+    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
     Payjp::Charge.create(
     :amount => @product.price, #支払金額
