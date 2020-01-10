@@ -8,7 +8,7 @@ class CardController < ApplicationController
     redirect_to action: "show" if card.exists?
   end
 
-  def pay #payjpとCardのデータベース作成を実施します。
+  def pay #payjpとCardのデータベース作成を実施します
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key) #creddential.yml.enb から呼び出せないので仮置き
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -21,7 +21,7 @@ class CardController < ApplicationController
       metadata: {user_id: 1}
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      @card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
+      @card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card, token: params['payjp-token'])
       
       if @card.save
         redirect_to action: "show"
