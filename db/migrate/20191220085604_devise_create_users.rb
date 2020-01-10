@@ -14,7 +14,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :birthday_yyyy,           null: false, default: "00"    
       t.integer :birthday_mm,             null: false, default: "00"    
       t.integer :birthday_dd,             null: false, default: "00"    
-      t.integer :authentication_number,   null: false
 
       ## Recoverable
       t.string   :reset_password_token

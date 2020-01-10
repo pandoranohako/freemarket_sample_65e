@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
+  devise_scope :user do
+    get 'signup', to: 'users/registrations#index'
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #マイページ
   root "products#index"
-  resources :products, only: [:new, :show] do
+  resources :products, only: [:show] do
     resources :purchase, only: [:index] do
       collection do
         get 'index', to: 'purchase#index'
@@ -12,7 +21,7 @@ Rails.application.routes.draw do
         get 'done', to: 'purchase#done'
       end
     end
-end
+  end
 
   resources :card, only: [:new, :show] do
     collection do
@@ -21,6 +30,8 @@ end
       post 'delete', to: 'card#delete'
     end
   end
+
+  resources :products, only: [:new, :destroy] 
 
   resources :mypage do [:index]
     collection do
