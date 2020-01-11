@@ -1,34 +1,64 @@
--# 新規登録画面のマークアップ
--# 新規ログイン画面ヘッダー
-.signin__container
-  .signup__simple__header
-    .signup__simple__header__logo
-      = link_to root_path do
-        =image_tag  'fmarket_logo_red.svg', height: '100', width: '450'
+= render 'shared/top_page_header'
 
-  -# 新規登録メイン
-  .signup-index-main
-    .signup-index-main__head 
-      新規会員登録
-    .signup-submit-button-form
-      .signup-index-mail-box
-        = link_to '/users/sign_up', class: 'signup-main__btn-default signup-main__btn-mail' do
-          = icon 'far', 'envelope'
-          メールアドレスで登録する
-      %button.btn.btn-facebook Facebookで登録する
-      %button.btn.btn-google Googleで登録する
+.mypage-wrapper
+  = render 'mypage-sidebar'
+  .mypage
+    .mypage__main
+      %section.mypage__main__profile
+        =link_to'#', class: "mypage__main__profile__link" do
+          %figure.mypage__main__profile__figure
+            = image_tag 'https://static.mercdn.net/thumb/members/694458219.jpg?1556339234', size: "60x60"
+          %h2.mypage__main__profile__name
+            ユーザー名
+          .mypage__main__profile__figure__data
+            .mypage__main__profile__figure__data__evaluation
+              評価
+              %span.mypage__main__profile__figure__data__span 0
+            .mypage__main__profile__figure__data__number
+              出品数
+              %span.mypage__main__profile__figure__data__span 0
 
-      
-      -# 新規ログイン画面フッター
-  .signup__footer
-    .signup__footer__detail
-      = link_to '#' do
-        プライバシーポリシー
-      = link_to '#' do
-        メルカリ利用規約
-      = link_to '#' do
-        特定商取引に関する表記
-    .signup__footer__logo
-      = link_to root_path, class: 'signup-footer__logo' do
-        = image_tag 'fmarket_logo_white.svg', alt: 'mercari', height: '65', width: '80'
-      %p© 2019 Mercari
+      %section.mypage__main__notification-todo
+        %ul.mypage__main__notification-todo__tabs
+          %li.mypage__main__notification-todo__tabs__notification
+            %h3
+              =link_to '#', class: "mypage__main__notification-todo__tabs__notification__link" do
+                お知らせ
+          %li.mypage__main__notification-todo__tabs__todo
+            %h3
+              =link_to '#' , class: "mypage__main__notification-todo__tabs__todo__link" do
+                やることリスト
+
+        .mypage__main__notification-todo__content
+          %ul.mypage__main__notification-todo__content__notification
+            %li.mypage__main__notification-todo__content__notification__li
+              =link_to '#', class: "mypage__main__notification-todo__content__notification__link" do
+                %figure.mypage__main__notification-todo__content__notification__figure
+                  = image_tag 'logo_red.svg', size: "48x48", class: "mypage__main__notification-todo__content__notification__img"
+                .mypage__main__notification-todo__content__notification__text
+                  《新規登録者限定》
+                  %time.mypage__main__notification-todo__content__notification__text__time
+                    = icon('far', 'clock', class: 'mypage__main__notification-todo__content__time')
+                    %span 1日前
+                    = icon('fas', 'chevron-right', class: 'mypage__main__notification-todo__content__mark')
+          .mypage__main__notification-todo__content__list
+            =link_to '#', class: "mypage__main__notification-todo__content__list__link" do
+              一覧を見る
+      %section.mypage__main__product
+        %h2.mypage__main__product__head
+          購入した商品
+        %ul.mypage__main__product__tabs
+          %li.mypage__main__product__tabs__during-trading
+            %h3
+              =link_to("取引中",'#', class: "mypage__main__product__tabs__during-trading__link")
+          %li.mypage__main__product__tabs__after-trading
+            %h3
+              =link_to "過去の取引",'#', class: "mypage__main__product__tabs__after-trading__link"
+        .mypage__main__product__content
+          = image_tag 'logo_gray.svg', size: "83x90", class: "mypage__main__product__content__during-trading__text__img"
+          .mypage__main__product__content__text
+            取引中の商品がありません
+
+= render 'shared/top_page_footer_app'
+= render 'shared/top_page_footer'
+= render 'shared/display_btn'
