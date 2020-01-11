@@ -2,11 +2,12 @@
   @include flex_row_start();
   background-color: $main_light_gray;
   padding-top: 40px;
+  margin: 0 auto 0;
 
   &__profile {
     width: 700px;
     height: calc(206px + 362px);
-    margin: 0 auto;
+    margin: 0 0 0 40px;
     background-color: white;
 
     &__header {
