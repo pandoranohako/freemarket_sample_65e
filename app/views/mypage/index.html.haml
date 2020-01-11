@@ -1,99 +1,63 @@
 = render 'shared/top_page_header'
--# = render 'shared/breadcrumbs/mypage_profile'
 
 .profile-wrapper
   = render 'mypage-sidebar'
-  .mypage__main
-    %section.mypage__main__profile
-      =link_to'#', class: "mypage__main__profile__link" do
-        %figure.mypage__main__profile__figure
-          = image_tag '', size: "60x60"
-        %h2.mypage__main__profile__name
-          ユーザー名
-        .mypage__main__profile__figure__data
-          .mypage__main__profile__figure__data__evaluation
-            評価
-            %span.mypage__main__profile__figure__data__span 0
-          .mypage__main__profile__figure__data__number
-            出品数
-            %span.mypage__main__profile__figure__data__span 0
+  .mypage-wrapper
+    .mypage__main
+      %section.mypage__main__profile
+        =link_to'#', class: "mypage__main__profile__link" do
+          %figure.mypage__main__profile__figure
+            = image_tag '', size: "60x60"
+          %h2.mypage__main__profile__name
+            ユーザー名
+          .mypage__main__profile__figure__data
+            .mypage__main__profile__figure__data__evaluation
+              評価
+              %span.mypage__main__profile__figure__data__span 0
+            .mypage__main__profile__figure__data__number
+              出品数
+              %span.mypage__main__profile__figure__data__span 0
 
-    %section.mypage__main__notification-todo
-      %ul.mypage__main__notification-todo__tabs
-        %li.mypage__main__notification-todo__tabs__notification
-          %h3
-            =link_to '#', class: "mypage__main__notification-todo__tabs__notification__link" do
-              お知らせ
-              .mypage__main__notification-todo__tabs__notification__span 1
-        %li.mypage__main__notification-todo__tabs__todo
-          %h3
-            =link_to '#' , class: "mypage__main__notification-todo__tabs__todo__link" do
-              やることリスト
-              .mypage__main__notification-todo__tabs__todo__span 2 
+      %section.mypage__main__notification-todo
+        %ul.mypage__main__notification-todo__tabs
+          %li.mypage__main__notification-todo__tabs__notification
+            %h3
+              =link_to '#', class: "mypage__main__notification-todo__tabs__notification__link" do
+                お知らせ
+          %li.mypage__main__notification-todo__tabs__todo
+            %h3
+              =link_to '#' , class: "mypage__main__notification-todo__tabs__todo__link" do
+                やることリスト
 
-      .mypage__main__notification-todo__content
-        %ul.mypage__main__notification-todo__content__notification
-          %li.mypage__main__notification-todo__content__notification__li
-            =link_to '#', class: "mypage__main__notification-todo__content__notification__link" do
-              %figure.mypage__main__notification-todo__content__notification__figure
-                = image_tag 'logo_red.svg', size: "48x48", class: "mypage__main__notification-todo__content__notification__img"
-              .mypage__main__notification-todo__content__notification__text
-                《新規登録者限定》
-                %time.mypage__main__notification-todo__content__notiofication__text__time
-                  = icon('far', 'clock', class: 'mypage__main__notification-todo__content__time')
-                  %span 1日前
-                  = icon('fas', 'chevron-right', class: 'mypage__main__notification-todo__content__mark')
-        .mypage__main__notification-todo__content__list
-          =link_to '#', class: "mypage__main__notification-todo__content__list__link" do
-            一覧を見る
-        -# %ul.mypage__main__notification-todo__content__todo
-        -#   %li.mypage__main__notification-todo__content__todo__li
-        -#     =link_to('#', class: "mypage__main__notification-todo__content__todo__link") do
-        -#       %figure.mypage__main__notification-todo__content__todo__figure
-        -#         = image_tag 'logo_vertical.png', size: "60x60", class:"mypage__main__notification-todo__content__todo__img"
-        -#       .mypage__main__notification-todo__content__todo__text
-        -#          メールが届いていない状態です。
-        -#         %time.mypage__main__notification-todo__content__todo__text__time
-        -#           = icon('far', 'clock', class: 'mypage__main__notification-todo__content__time')
-        -#           %span 1日前
-        -#       %i
-        -#         = icon('fas', 'chevron-right', class: 'mypage__main__notification-todo__content__mark')
-        -#   %li.mypage__main__notification-todo__content__todo__li
-        -#     =link_to('#', class: "mypage__main__notification-todo__content__todo__link") do
-        -#       %figure.mypage__main__notification-todo__content__todo__figure
-        -#         = image_tag 'logo_vertical.png', size: "60x60", class:"mypage__main__notification-todo__content__todo__img"
-        -#       .mypage__main__notification-todo__content__todo__text
-        -#           ご登録のメールアドレスに…
-        -#         %time.mypage__main__notification-todo__content__todo__body__time
-        -#           = icon('far', 'clock', class: 'mypage__main__notification-todo__content__time')
-        -#           %span 1日前
-        -#       %i
-        -#         = icon('fas', 'chevron-right', class: 'mypage__main__notification-todo__content__mark')
-        -#   .mypage__main__notification-todo__content__list
-        -#     =link_to("一覧を見る",'#', class: "mypage__main__notification-todo__content__list__link")
-    %section.mypage__main__product
-      %h2.mypage__main__product__head
-        購入した商品
-      %ul.mypage__main__product__tabs
-        %li.mypage__main__product__tabs__during-trading
-          %h3
-            =link_to("取引中",'#', class: "mypage__main__product__tabs__during-trading__link")
-        %li.mypage__main__product__tabs__after-trading
-          %h3
-            =link_to "過去の取引",'#', class: "mypage__main__product__tabs__after-trading__link"
-      .mypage__main__product__content
-        -# %ul.mypage__main__product__content__during-trading
-        -#   %li.mypage__main__product__content__during-trading__text
-        = image_tag 'logo_gray.svg', size: "83x90", class: "mypage__main__product__content__during-trading__text__img"
-        .mypage__main__product__content__text
-          取引中の商品がありません
-
-        
-          
-        -# %ul.mypage__main__product__content__after-trading
-        -#   %li.mypage__main__product__content__after-trading__text
-        -#     過去に取引した商品がありません
-
+        .mypage__main__notification-todo__content
+          %ul.mypage__main__notification-todo__content__notification
+            %li.mypage__main__notification-todo__content__notification__li
+              =link_to '#', class: "mypage__main__notification-todo__content__notification__link" do
+                %figure.mypage__main__notification-todo__content__notification__figure
+                  = image_tag 'logo_red.svg', size: "48x48", class: "mypage__main__notification-todo__content__notification__img"
+                .mypage__main__notification-todo__content__notification__text
+                  《新規登録者限定》
+                  %time.mypage__main__notification-todo__content__notiofication__text__time
+                    = icon('far', 'clock', class: 'mypage__main__notification-todo__content__time')
+                    %span 1日前
+                    = icon('fas', 'chevron-right', class: 'mypage__main__notification-todo__content__mark')
+          .mypage__main__notification-todo__content__list
+            =link_to '#', class: "mypage__main__notification-todo__content__list__link" do
+              一覧を見る
+      %section.mypage__main__product
+        %h2.mypage__main__product__head
+          購入した商品
+        %ul.mypage__main__product__tabs
+          %li.mypage__main__product__tabs__during-trading
+            %h3
+              =link_to("取引中",'#', class: "mypage__main__product__tabs__during-trading__link")
+          %li.mypage__main__product__tabs__after-trading
+            %h3
+              =link_to "過去の取引",'#', class: "mypage__main__product__tabs__after-trading__link"
+        .mypage__main__product__content
+          = image_tag 'logo_gray.svg', size: "83x90", class: "mypage__main__product__content__during-trading__text__img"
+          .mypage__main__product__content__text
+            取引中の商品がありません
 
 = render 'shared/top_page_footer_app'
 = render 'shared/top_page_footer'
