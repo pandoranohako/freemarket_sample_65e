@@ -1,8 +1,8 @@
 = render 'shared/top_page_header'
 
-.profile-wrapper
+.mypage-wrapper
   = render 'mypage-sidebar'
-  .mypage-wrapper
+  .mypage
     .mypage__main
       %section.mypage__main__profile
         =link_to'#', class: "mypage__main__profile__link" do
@@ -37,7 +37,7 @@
                   = image_tag 'logo_red.svg', size: "48x48", class: "mypage__main__notification-todo__content__notification__img"
                 .mypage__main__notification-todo__content__notification__text
                   《新規登録者限定》
-                  %time.mypage__main__notification-todo__content__notiofication__text__time
+                  %time.mypage__main__notification-todo__content__notification__text__time
                     = icon('far', 'clock', class: 'mypage__main__notification-todo__content__time')
                     %span 1日前
                     = icon('fas', 'chevron-right', class: 'mypage__main__notification-todo__content__mark')

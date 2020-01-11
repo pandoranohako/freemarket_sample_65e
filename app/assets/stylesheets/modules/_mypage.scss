@@ -1,64 +1,47 @@
 .mypage-wrapper {
+  @include flex_row_start();
+  background-color: $main_light_gray;
+  padding-top: 40px;
+  margin: 0 auto 0;
+}
+
+.mypage {
   background-color: $main_light_gray;
   margin: 0 0 0 40px;
-}
-.mypage__main {
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  width: 700px;
 
-  &__profile {
-    background-image: url("/bokeh.jpg");
-    position: relative;
-    height: 180px;
-    padding: 20px;
-    background-size: cover;
-    text-align: center;
-    a{
-      text-decoration: none;
-    }
-  
-    &__link {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      -webkit-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-      color: #333;
-    }
-  }
-}
+  &__main {
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    width: 700px;
 
-      .mypage__main__profile__figure {
+    &__profile {
+      background-image: url("/bokeh.jpg");
+      position: relative;
+      height: 180px;
+      padding: 20px;
+      background-size: cover;
+      text-align: center;
+
+      &__figure {
         overflow: hidden;
         width: 60px;
         height: 60px;
         margin: 0 auto;
         border-radius: 50%;
-      }
 
-      .mypage__main__profile__name {
-        margin: 8px 0 0;
-        font-size: 14px;
-        line-height: 1.4;
-        font-weight: 600;
-      }
-
-      .mypage__main__profile__figure__data {
-        margin: 8px 0 0;
-        font-size: 1;
-      
-        .mypage__main__profile__figure__data__evaluation {
-          display: inline-block;
-          font-size: 14px;
-        }
-        .mypage__main__profile__figure__data__number {
-          display: inline-block;
-          font-size: 14px;
-          margin: 0 0 0 16px;
+        &__data {
+          margin: 8px 0 0;
+          font-size: 1;
         
-          .mypage__main__profile__figure__data__span {
+          &__evaluation {
+            display: inline-block;
+            font-size: 14px;
+          }
+          &__number {
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 0 0 16px;
+          }
+          &__span {
             margin: 0 0 0 8px;
             font-size: 16px;
             font-weight: 600;
@@ -66,43 +49,61 @@
           }
         }
       }
-      
+      &__name {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 600;
+      }
 
-
-
-  .mypage__main__notification-todo {
-    width: 700px;
-    background-color: #fff;
-    margin: 0;
-    display: block;
-  
-    .mypage__main__notification-todo__tabs {
+      a{
+        text-decoration: none;
+      }
+    
+      &__link {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        color: #333;
+      }
+    }
+    &__notification-todo {
       width: 700px;
-      height: 74px;
-      border: 0;
-      background: #eee;
-      font-size: 1;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      text-align: center;
-
-      .mypage__main__notification-todo__tabs__notification {
-        background-color: #fff;
-        width: 350px;
+      background-color: #fff;
+      margin: 0;
+      display: block;
+    
+      &__tabs {
+        width: 700px;
+        height: 74px;
+        border: 0;
+        background: #eee;
+        font-size: 1;
         list-style: none;
-      
-        .mypage__main__notification-todo__tabs__notification__link {
-          position: relative;
-          display: block;
-          color: #333;
-          font-size: 16px;
-          line-height: 72px;
-          text-decoration: none;
-          border-top: 2px solid #ea352d;
-          font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+        &__notification {
+          background-color: #fff;
+          width: 350px;
+          list-style: none;
         
-          .mypage__main__notification-todo__tabs__notification__span {
+          &__link {
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+            border-top: 2px solid #ea352d;
+            font-weight: bold;
+          }        
+          &__span {
             position: absolute;
             top: 3px;
             right: 2px;
@@ -115,26 +116,21 @@
             border-radius: 50%;
           }
         }
-      }
-    }
-  }
+        &__todo {
+          width: 350px;
+          display: inline-block;
+          vertical-align: top;
+          &__link {
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+            font-weight: bold;
+          } 
 
-      .mypage__main__notification-todo__tabs__todo {
-        width: 350px;
-        display: inline-block;
-        vertical-align: top;
-      
-        .mypage__main__notification-todo__tabs__todo__link {
-          position: relative;
-          display: block;
-          color: #333;
-          font-size: 16px;
-          line-height: 72px;
-          text-decoration: none;
-          font-weight: bold;
-        
-
-          .mypage__main__notification-todo__tabs__todo__span {
+          &__span {
             top: 16px;
             right: 2px;
             position: absolute;
@@ -150,150 +146,137 @@
           }
         }
       }
+      &__content {
+        display: block;
 
-
-
-    .mypage__main__notification-todo__content {
-      display: block;
-    
-      .mypage__main__notification-todo__content__notification__li {
-        position: relative;
-        border-bottom: 1px solid #eee;
-      
-        .mypage__main__notification-todo__content__notification__link {
+        &__notification__li {
+          position: relative;
+          border-bottom: 1px solid #eee;
+        }
+        &__notification__link {
           display: block;
           min-height: 80px;
           padding: 16px;
           color: #333;
           text-decoration: none;
           position: relative;
-  
-          .mypage__main__notification-todo__content__notification__figure {
-            float: left;
-            margin: 0px;          
+        }
+        &__notification__figure {
+          float: left;
+          margin: 0px;          
+        }
+        &__notification__img {
+          display: block;
+          float: left;
+        } 
+        &__notification__text {
+          margin: 0 40px 0 68px;
+          text-align: left;
+          line-height: 1.5;
 
-            .mypage__main__notification-todo__content__notification__img {
-              display: block;
-              float: left;
-            }
+          &__time {
+            display: block;
+          }
+        }
+          &__time {
+          margin: 0 8px 0 0;
+          display: block;
+          float: left;
+          margin-top: 5px;
+          color: #aaa;
+          }
+        &__mark {
+          position: absolute;
+          right: 16px;
+          display: inline-block;
+          font-size: medium;
+          }
+        &__list {
+          padding: 16px;
+          &__link {
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+            text-decoration: none;
           }
         }
       }
     }
-
-          .mypage__main__notification-todo__content__notification__text {
-            margin: 0 40px 0 68px;
-            text-align: left;
-            line-height: 1.5;
-          
-            .mypage__main__notification-todo__content__notiofication__text__time {
-              display: block;
-            
-              .mypage__main__notification-todo__content__time {
-                margin: 0 8px 0 0;
-                display: block;
-                display: block;
-                float: left;
-                margin-top: 5px;
-                color: #aaa;
-              }
-            }
-          }
-
-              .mypage__main__notification-todo__content__mark {
-                position: absolute;
-                right: 16px;
-                display: inline-block;
-                font-size: medium;
-              }
-
-    .mypage__main__notification-todo__content__list {
-      padding: 16px;
-    
-      .mypage__main__notification-todo__content__list__link {
-        display: block;
-        height: 56px;
-        margin: 0 auto;
-        background: #eee;
-        color: #333;
-        line-height: 56px;
-        text-align: center;
-        text-decoration: none;
+    &__product {
+      margin: 40px 0 0;
+      background: #fff;
+      width: 700px;
+      &__head {
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        padding: 0 16px;
+        font-weight: bold;
       }
-    }
-
-        .mypage__main__product {
-          margin: 40px 0 0;
+      &__tabs {
+        border: 0;
+        background: #eee;
+        display: block;
+        display: flex;
+        &__during-trading {
           background: #fff;
-          width: 700px;
-        
-          .mypage__main__product__head {
-            background: #fafafa;
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          &__link {
+            border-top: 2px solid #ea352d;
+            position: relative;
+            display: block;
+            color: #333;
             font-size: 16px;
             line-height: 72px;
-            padding: 0 16px;
+            text-decoration: none;
             font-weight: bold;
           }
         }
-          .mypage__main__product__tabs {
-            border: 0;
-            background: #eee;
-            // font-size: 1;
-            display: block;
-            display: flex;
-          
-            .mypage__main__product__tabs__during-trading {
-              background: #fff;
-              width: 50%;
-              display: inline-block;
-              text-align: center;
-              vertical-align: top;
-            
-              .mypage__main__product__tabs__during-trading__link {
-                border-top: 2px solid #ea352d;
-                position: relative;
-                display: block;
-                color: #333;
-                font-size: 16px;
-                line-height: 72px;
-                text-decoration: none;
-                font-weight: bold;
-              }
-            }
+        &__after-trading {
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          &__link {
+            display: inline-block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+            font-weight: bold;
+          } 
+        }
+      }
+      &__content {
+        height: 236px;
+        position: relative;
+        &__during-trading__text__img {
+          position: absolute;
+          top: 50px;
+          left: 310px;
+        }
+        &__text {
+          text-align: center;
+          padding: 160px 0 60px;
+          background-repeat: no-repeat;
+          background-position: center 40px;
+          background-size: 78px 85px;
+          font-size: 16px;
+          color: #ccc;
+          &__img {
+            position: absolute;
+            top: 50px;
+            left: 310px;
           }
-            .mypage__main__product__tabs__after-trading {
-              width: 50%;
-              display: inline-block;
-              text-align: center;
-              vertical-align: top;
-            
-              .mypage__main__product__tabs__after-trading__link {
-                display: inline-block;
-                color: #333;
-                font-size: 16px;
-                line-height: 72px;
-                text-decoration: none;
-                font-weight: bold;
-              }
-            }
-
-          .mypage__main__product__content {
-            height: 236px;
-            position: relative;
-          }
-          
-            .mypage__main__product__content__during-trading__text__img {
-              position: absolute;
-              top: 50px;
-              left: 310px;
-            }
-
-            .mypage__main__product__content__text {
-              text-align: center;
-              padding: 160px 0 60px;
-              background-repeat: no-repeat;
-              background-position: center 40px;
-              background-size: 78px 85px;
-              font-size: 16px;
-              color: #ccc;
-            }
+        }
+      }
+    }
+  }
+} 
