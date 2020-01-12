@@ -12,6 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  require "payjp"
+  
   # POST /resource
   def create
   params[:sns_auth] == 'true' ? params[:user][:password] = Devise.friendly_token : "";
