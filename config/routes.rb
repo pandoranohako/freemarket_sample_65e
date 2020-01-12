@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'users/registrations#index'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    post 'card',      to: 'users/registrations#create_card'
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
