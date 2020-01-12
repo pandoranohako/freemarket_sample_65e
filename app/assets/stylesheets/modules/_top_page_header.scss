@@ -126,6 +126,28 @@
             font-size: 14px;
             line-height: 36px;
           }
+          &__signin {
+            background-color: rgb(234, 53, 45);
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+            border-width: 1px;
+            border-radius: 4px;
+            padding: 8px 10px;
+            line-height: 1.5;
+            text-align: center;
+          }
+          &__session {
+            color: rgb(0, 149, 238);
+            font-size: 14px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(0, 149, 238);
+            border-radius: 4px;
+            padding: 8px 10px;
+            transition: all 0.3s ease-out 0s;
+            margin-left: 10px;
+            text-align: center;
+          }
         }
 
         &__mypage-link {
