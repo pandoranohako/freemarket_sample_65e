@@ -23,7 +23,7 @@
   .signup-main4
     .signup-main4__head お支払い方法
   .card-input-contents4
-    = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+    = form_tag(card_path, method: :post, id: 'charge-form',  name: "inputForm") do
       .card-input-content4
         .form-group
           %label

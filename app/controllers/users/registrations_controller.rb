@@ -47,7 +47,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = Address.new(session["address"])
     @address.save
  
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
