@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'users/registrations#index'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    post 'card',      to: 'users/registrations#create_card'
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   resources :card, only: [:new] do
     collection do
       get  'show',   to: 'card#show'
-      post 'pay',    to: 'card#pay'
+      # post 'pay',    to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
   end
