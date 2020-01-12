@@ -35,86 +35,84 @@
           color:white;
         }
       }
+      &__facebook{
+        max-width: 343px;
+        height: 50px;
+        margin: auto;
+        margin-bottom: 16px;
+        width: 328px;
+        font-size: 14px;
+        text-align: center;
+        background: #385185;
+        &__btn{
+          color: white;
+        }
+        a{
+          background-color: #385185;
+          border-radius: 4px;
+          color: #FFFFFF;
+          font-size: 14px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          width: 328px;
+          margin: 0 auto;
+          display: block;
+          padding-right: 16px;
+          i{
+            float: left;
+            padding-left: 16px;
+            bottom: 25px;
+            font-size: 26px;
+            color: #ffffff;
+            padding-top: 11px;
+          }
+        }
+      }
+      &__google2{
+        color: #333;
+        height: 38px;
+        margin: auto;
+        margin-bottom: 16px;
+        width: 328px;
+        font-size: 14px;
+        text-align: center;
+        &__btn{
+          color: #333;
+        }
+        a{
+          background-color: #FFFFFF;
+          border: 1px solid;
+          border-radius: 4px;
+          color: #333;
+          font-size: 14px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          width: 328px;
+          margin: 0 auto;
+          display: block;
+          padding-right: 16px;
+          i{
+            float: left;
+            padding-left: 19px;
+            bottom: 25px;
+            font-size: 20px;
+            padding-top: 15px;
+          }
+        }
+      }
+      &__input {
+        height: 50px;
+        margin: auto;
+        margin-bottom: 16px;
+        width: 328px;
+        font-size: 14px;
+        text-align: center;
+      }
     }
-  }
-}
 
-.signin-main__conect__lists__facebook{
-  max-width: 343px;
-  height: 50px;
-  margin: auto;
-  margin-bottom: 16px;
-  width: 328px;
-  font-size: 14px;
-  text-align: center;
-  background: #385185;
-  &__btn{
-    color: white;
   }
-  a{
-    background-color: #385185;
-    border-radius: 4px;
-    color: #FFFFFF;
-    font-size: 14px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    width: 328px;
-    margin: 0 auto;
-    display: block;
-    padding-right: 16px;
-    i{
-      float: left;
-      padding-left: 16px;
-      bottom: 25px;
-      font-size: 26px;
-      color: #ffffff;
-      padding-top: 11px;
-    }
-  }
-}
-
-.signin-main__conect__lists__google2{
-  color: #333;
-  height: 38px;
-  margin: auto;
-  margin-bottom: 16px;
-  width: 328px;
-  font-size: 14px;
-  text-align: center;
-  &__btn{
-    color: #333;
-  }
-  a{
-    background-color: #FFFFFF;
-    border: 1px solid;
-    border-radius: 4px;
-    color: #333;
-    font-size: 14px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    width: 328px;
-    margin: 0 auto;
-    display: block;
-    padding-right: 16px;
-    i{
-      float: left;
-      padding-left: 19px;
-      bottom: 25px;
-      font-size: 20px;
-      padding-top: 15px;
-    }
-  }
-}
-
-.signin-main__conect__lists__input {
-  height: 50px;
-  margin: auto;
-  margin-bottom: 16px;
-  width: 328px;
-  font-size: 14px;
-  text-align: center;
 }
 
 .input_box1 {
