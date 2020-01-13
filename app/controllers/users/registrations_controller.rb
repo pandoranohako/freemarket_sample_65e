@@ -12,6 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  def logout
+  end
+
   require "payjp"
   
   # POST /resource
