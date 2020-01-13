@@ -7,27 +7,19 @@
   position: relative;
   z-index: 10;
 
-  &__breadcrumb {
-    @include flex_row_start();
-    margin: auto;
+  &-list {
     width: 1020px;
     height: 100%;
+    font-size: 14px;
+    margin: auto;
     line-height: 48px;
 
-    &__name {
-      text-decoration: none;
-      font-size: 14px;
+    a {
+     color: black;
     }
 
-    &__name-last {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    &__icon {
-      line-height: 48px;
-      margin: 0 8px;
-      color: $dark_gray;
+    span.current {
+      font-weight: bold;
     }
   }
 }
