@@ -7,9 +7,9 @@ class User < ApplicationRecord
          kana = /\A([ァ-ン]|ー)+\z/
 
 #アソシエーション
-  has_many :products
-  has_many :cards
-  has_one :address
+  has_many :products, dependent: :destroy
+  has_many :cards, dependent: :destroy
+  has_one :address, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
   
 #バリデーション設定    
