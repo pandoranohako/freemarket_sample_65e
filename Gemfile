@@ -97,3 +97,6 @@ gem 'jquery-rails'
 
 #クレジットカード決済
 gem 'payjp'
+
+#パンくずリスト
+gem "gretel"
