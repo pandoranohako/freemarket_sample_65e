@@ -2,9 +2,8 @@
 
 .mypage-wrapper
   = render 'mypage/mypage-sidebar'
-  .mypage
-    .mypage__main
-    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: '.mypage__main__form__content__btn'    
+  .logout
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout__btn'    
 
 = render 'shared/top_page_footer_app'
 = render 'shared/top_page_footer'
