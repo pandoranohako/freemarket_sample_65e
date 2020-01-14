@@ -199,7 +199,7 @@
   margin: 0 auto;
   background-color: #fff;
   form{
-    padding: 90px 40px 64px;
+    padding: 40px 40px 64px;
     border-top: 1px solid #f5f5f5;
     .card-input-content4{
       max-width: 343px;
@@ -223,80 +223,106 @@
           margin: 0 0 0 8px;
         }
       }
-      .select-wrap{
-        .select-wrap-half{
-          display: inline-block;
-          width: 45%;
-          margin: 8px 0 0;
-          position: relative;
-          background: #fff;
-          select{
-            width: calc(100% - 38px);
-            position: relative;
-            z-index: 2;
-            height: 48px;
-            padding: 0 16px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: 0;
-            font-size: 16px;
-            line-height: 1.5;
-            cursor: pointer;
-          }
-          i{
-            top:5px;
-            right: 50px;
-            position: absolute;
-            z-index: 10;
-            color: #888;
-            font-size: 35px;
-          }
-          #cvc{
-            width: calc(100% - 38px);
-            position: relative;
-            z-index: 2;
-            height: 48px;
-            padding: 0 16px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: 0;
-            font-size: 16px;
-            line-height: 1.5;
-            cursor: pointer;
-          }
-        }
-      }
-      .signup-seqcode{
-        text-align: right;
-        font-size: 14px;
-        margin: 8px 0 0;
-        .signup-seqcode-text{
-          color: #0099e8;
-          display: inline-block;
-          width: 14px;
-          height: 14px;
-          border-radius: 50%;
-          background: #0099e8;
-          color: #fff;
-          line-height: 14px;
-          font-size: 12px;
-          text-align: center;
-        }
-        span{
-          color: #0099e8;
-        }
-      }
-    }
-    .add-btn{
-      background: #ea352d;
-      border: 1px solid #ea352d;
-      color: #fff;
-      width: 100%;
-      margin: 8px 0 0;
-      height: 48px;
-      padding: 10px 16px 8px;
-      line-height: 1.5;
-      font-size: 16px;
     }
   }
+}
+
+
+.form-group{
+  margin: 0 0 40px;
+  label span{
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+}
+
+
+.number{
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+
+.select-wrap{
+  .select-wrap-half{
+    display: inline-block;
+    width: 45%;
+    margin: 8px 0 0;
+    position: relative;
+    background: #fff;
+    select{
+      width: calc(100% - 38px);
+      position: relative;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+  }
+}
+
+.cvc {
+  width: calc(100% - 38px);
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+
+.signup-seqcode{
+  text-align: right;
+  font-size: 14px;
+  margin: 8px 0 0;
+  .signup-seqcode-text{
+    color: #0099e8;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0099e8;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+  }
+  span{
+    color: #0099e8;
+  }
+}
+
+
+.add-btn {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  line-height: 1.5;
+  font-size: 16px;
 }
