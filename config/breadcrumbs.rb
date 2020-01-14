@@ -14,6 +14,12 @@ crumb :profile do
   parent :mypage
 end
 
+# 本人確認ページ
+crumb :identification do
+  link "本人情報の登録", identification_mypage_index_path
+  parent :mypage
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
