@@ -5,15 +5,25 @@ Rails.application.routes.draw do
   #マイページ
 
 
-  
-  root "products#index"
-  resources :products, only: [:new, :show] 
+
+  resources :products, only: [:show, :new, :edit, :destroy, :create]  do
+    #Ajaxで動くアクションのルートを作成
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 
   resources :mypage do [:index]
     collection do
       get 'profile'         #プロフィール
     end
   end
+
+  
+
+  root 'products#index'
+# resources :products, except: :show
 
 
   resources :mypage, only: [:index, :new] do
