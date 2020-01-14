@@ -19,11 +19,8 @@ Rails.application.routes.draw do
       get 'profile'         #プロフィール
     end
   end
-
   
-
   root 'products#index'
-# resources :products, except: :show
 
 
   resources :mypage, only: [:index, :new] do
