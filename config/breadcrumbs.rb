@@ -20,6 +20,12 @@ crumb :identification do
   parent :mypage
 end
 
+# ログアウト
+crumb :logout do
+  link "ログアウト", "logout"
+  parent :mypage
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
