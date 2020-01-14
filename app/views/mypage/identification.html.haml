@@ -5,3 +5,64 @@
 
 .mypage-wrapper
   = render 'mypage-sidebar'
+  .mypage
+    .mypage__main
+    %section.mypage-identification
+      %h2.mypage-identification__head
+        本人情報の登録
+      = form_with(url: root_path, class: 'mypage-identification__forms') do |f|
+        .mypage-identification__forms__text
+          %p
+            お客さまの本人情報をご登録ください。<br>登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.mypage-identification__forms__text-right
+          = link_to "本人確認書類のアップロードについて", "#"
+          = icon('fas', 'chevron-right')
+        .mypage-identification__forms__form
+          %label
+            お名前
+          %p
+            メルカリ真之介
+        .mypage-identification__forms__form
+          %label
+            お名前カナ
+          %p
+            メルカリシンノスケ
+        .mypage-identification__forms__form
+          %label
+            生年月日
+          %p
+            1998/05/01
+        .mypage-identification__forms__form
+          %label
+            郵便番号
+          %span.content__option 任意
+        = f.text_field :postal_code, placeholder: "例) 123-4567", class: "mypage-identification__forms__form__input"
+        .mypage-identification__forms__form
+          %label
+            都道府県
+          %span.content__option 任意
+        = f.text_field :prefecture, placeholder: "例) 神奈川県", class: "mypage-identification__forms__form__input"
+        .mypage-identification__forms__form
+          %label
+            市区町村 
+          %span.content__option 任意
+        = f.text_field :city, placeholder: "例) 横浜市緑区", class: "mypage-identification__forms__form__input"
+        .mypage-identification__forms__form
+          %label
+            番地
+          %span.content__option 任意
+        = f.text_field :address, placeholder: "例) 青山1-1-1", class: "mypage-identification__forms__form__input"
+        .mypage-identification__forms__form
+          %label
+            建物名
+          %span.content__option 任意
+        = f.text_field :building, placeholder: "例) アジアビル901", class: "mypage-identification__forms__form__input"
+        .mypage-identification__forms__form
+          = f.submit "登録する", class: 'mypage-identification__forms__form__btn'
+        .mypage-identification__forms__form
+          %p.mypage-identification__forms__text-right
+            = link_to "本人情報の登録について", "#"
+            = icon('fas', 'chevron-right')
+= render 'shared/top_page_footer_app'
+= render 'shared/top_page_footer'
+= render 'shared/display_btn'
