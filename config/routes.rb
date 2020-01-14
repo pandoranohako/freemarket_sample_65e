@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   resources :mypage do [:index]
     collection do
       get 'profile'         #プロフィール
+      get 'identification'
     end
   end
 
