@@ -2,12 +2,11 @@ $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
-                              <input class="new-product-main__center__image__label__text-field" type="file"
-                              name="product[images_attributes][${index}][image]"
-                              id="product_images_attributes_${index}_image">
-                              <br>
-                              <div class="js-remove">削除</div>
-                           </div>`;
+                    <input class="new-product-main__center__image__label__text-field" type="file"
+                    name="product[images_attributes][${index}][image]"
+                    id="product_images_attributes_${index}_image"><br>
+                    <div class="js-remove">削除</div>
+                  </div>`;
     return html;
   }
 
@@ -34,9 +33,7 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      // $('#image-box').append(buildFileField(fileIndex[0]));
-      $('.file_field_append').append(buildFileField(fileIndex[0]));
-
+      $('#image-box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)

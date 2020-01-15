@@ -19,7 +19,7 @@
                   .dropzone-container
                   #image-box
                     #previews
-                    .dropzone-area
+                      .dropzone-area
                       - if @product.persisted?
                         - @product.images.each_with_index do |image, i|
                           = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
@@ -27,12 +27,11 @@
                     = f.fields_for :images do |image|
                       .js-file_group{"data-index" => "#{image.index}"}
                         = image.file_field :image, class: 'new-product-main__center__image__label__text-field file_field_append '
-                        = f.fields_for :images do |image|
-                          - if @product.persisted?
-                        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                          - if @product.persisted?
-                            .js-file_group{"data-index" => "#{@product.images.count}"}
-                              = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'new-product-main__center__image__label__text-field file_field_append'
+                        - if @product.persisted?
+                      = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                        - if @product.persisted?
+                          .js-file_group{"data-index" => "#{@product.images.count}"}
+                            = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'new-product-main__center__image__label__text-field file_field_append'
                         
 
         -# #image-box
