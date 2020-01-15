@@ -2,11 +2,12 @@ $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
-                    <input class="js-file" type="file"
-                    name="product[images_attributes][${index}][image]"
-                    id="product_images_attributes_${index}_image"><br>
-                    <div class="js-remove">削除</div>
-                  </div>`;
+                              <input class="new-product-main__center__image__label__text-field" type="file"
+                              name="product[images_attributes][${index}][image]"
+                              id="product_images_attributes_${index}_image">
+                              <br>
+                              <div class="js-remove">削除</div>
+                           </div>`;
     return html;
   }
 
@@ -22,18 +23,20 @@ $(document).on('turbolinks:load', ()=> {
   fileIndex.splice(0, lastIndex);
   $('.hidden-destroy').hide();
 
-   $('#image-box').on('change', '.js-file', function(e) {
+   $('#image-box').on('change', '.new-product-main__center__image__label__text-field', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
     // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('image', blobUrl);
+      img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('#image-box').append(buildFileField(fileIndex[0]));
+      // $('#image-box').append(buildFileField(fileIndex[0]));
+      $('.file_field_append').append(buildFileField(fileIndex[0]));
+
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
@@ -51,7 +54,7 @@ $(document).on('turbolinks:load', ()=> {
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.new-product-main__center__image__label__text-field').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
 
@@ -66,6 +69,7 @@ $(function(){
     $('.right_bar_2').html(profit)
     $('.right_bar_2').prepend('¥')
     $('#price').val(profit) // 計算結果を格納用フォームに追加｡もし､入力値を追加したいのなら､今回はdataを引数に持たせる｡
+
     if(profit == '') {   // もし､計算結果が''なら表示も消す｡
     $('.right_bar_2').html('ー');
     $('.right_bar').html('ー');

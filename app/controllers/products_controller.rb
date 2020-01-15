@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
     end
   end
 
-private
+
 
 def product_params
   params.require(:product).permit(
@@ -64,9 +64,9 @@ end
 
 
 
-def set_product
-  @product = Product.find(params[:id])
-end
+# def set_product
+#   @product = Product.find(params[:id])
+# end
 
 
   def destroy
