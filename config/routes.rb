@@ -43,13 +43,4 @@ Rails.application.routes.draw do
       post 'card/delete', to: 'mypage#card_delete'
     end
   end
-
-  resources :mypage, only: [:index, :new] do
-      get 'address'
-      get 'complete'
-      get 'login'
-      get 'member'
-      get 'payment'
-      get 'telephone'
-  end
 end
