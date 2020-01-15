@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   resources :mypage do [:index]
     collection do
       get 'profile'         #プロフィール
+      get 'card/show',     to: 'mypage#card_show'
+      get 'card/new',      to: 'mypage#card_new'
+      post 'card/create',  to: 'mypage#card_create'
+      post 'card/delete', to: 'mypage#card_delete'
     end
   end
 
