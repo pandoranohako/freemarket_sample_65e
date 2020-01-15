@@ -45,6 +45,16 @@ class MypageController < ApplicationController
   end
 
   def complete
+  def card_delete #PayjpとCardデータベースを削除します
+    card = Card.find_by(user_id: current_user.id)
+    if card.blank?
+    else
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+    end
+      redirect_to action: "card_new"
   end
 
   def profile
