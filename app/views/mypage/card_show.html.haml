@@ -1,0 +1,31 @@
+= render 'shared/top_page_header'
+
+.mypage-card-show
+  = render 'mypage/mypage-sidebar'
+
+  .mypage-card-show__right
+    .mypage-card-show__right__header
+      支払い方法
+    .mypage-card-show__right__contents
+      .mypage-card-show__right__contents__title
+        クレジットカード一覧
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3951034907", class: 'mypage-card-show__right__contents__image'
+      .mypage-card-show__right__contents__information
+        = "************ " + @default_card_information.last4
+      .mypage-card-show__right__contents__exp
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+
+      = form_tag(card_delete_mypage_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+        %input{ type: "hidden", name: "card_id", value: "" }
+        %button.mypage-card-show__right__contents__exp__button
+          削除する
+    .mypage-card-show__right__bottom
+      = link_to card_show_mypage_index_path, class: 'mypage-card-show__right__bottom__link' do
+        支払い方法について
+        = icon('fas', 'chevron-right', class: 'mypage-card-show__right__bottom__link__icon')
+
+= render 'shared/top_page_footer_app'
+= render 'shared/top_page_footer'
+= render 'shared/display_btn'
