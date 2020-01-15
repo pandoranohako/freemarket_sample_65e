@@ -1,0 +1,55 @@
+.single-container
+  = render "shared/single-header"
+  .main.confirmation
+    .section
+      .title
+        購入内容の確認
+      .buy-item
+        .buy-item__box
+          .buy-item__box__image
+            = image_tag "omairi_woman.png", size: "80x80"
+          .buy-item__box__content
+            %p.buy-item__name
+              お参りウーマン
+            %p.buy-item__price
+              .buy-item__price__number
+              .buy-item__price__tax_included
+                ¥ 20,0000 (税込) 送料込み
+      .payment
+        .payment__box
+          .payment__box__inner__price
+            .payment__box__inner__price__left
+              支払い金額
+            .payment__box__inner__price__right
+              ¥ 20,0000
+          .payment__box__inner__card
+            .payment__box__inner__card__inner
+              .payment__box__inner__card__inner__method
+                .payment__box__inner__card__inner__method__word
+                  支払い方法
+                .payment__box__inner__card__inner__method__change
+                  = link_to "変更する", "#"
+              .payment__box__inner__card__inner__info__text
+                クレジットカード
+                %br 
+                ************3965
+                %br 
+                有効期限 11 / 24
+            .payment__box__inner__shipping
+              .payment__box__inner__shipping__inner
+                .payment__box__inner__shipping__inner__title
+                  .payment__box__inner__shipping__inner__title__word
+                    配送先
+                  .payment__box__inner__shipping__inner__title__change
+                    = link_to "変更する", "#" 
+                .payment__box__inner__shipping__inner__address__text
+                  〒121-2121
+                  %br
+                  東京都 渋谷区 神南1丁目 18−2
+                  %br
+                  神南 坂
+            .payment__box__inner__contents
+              .payment__box__inner__contents__submit
+                = link_to '購入する', done_purchase_index_path, class: 'payment__box__inner__contents__submit__buttun'
+  .single-footer
+    = render "shared/single-footer"
