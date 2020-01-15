@@ -2,6 +2,9 @@ class MypageController < ApplicationController
 
   require "payjp"
 
+  def profile
+  end
+
   def card_new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "card_show" if card.exists?
