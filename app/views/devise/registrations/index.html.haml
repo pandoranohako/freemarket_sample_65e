@@ -4,7 +4,7 @@
   .signup__simple__header
     .signup__simple__header__logo
       = link_to root_path do
-        =image_tag  'fmarket_logo_red.svg', height: '100', width: '450'
+        =image_tag  'fmarket_logo_red.svg', height: '49', width: '189'
 
   -# 新規登録メイン
   .signup-index-main
@@ -12,12 +12,20 @@
       新規会員登録
     .signup-submit-button-form
       .signup-index-mail-box
-        = link_to '/users/sign_up', class: 'signup-main__btn-default signup-main__btn-mail' do
-          = icon 'far', 'envelope'
+        = link_to new_user_registration_path do
+          = icon "fa","envelope"
           メールアドレスで登録する
-      %button.btn.btn-facebook Facebookで登録する
-      %button.btn.btn-google Googleで登録する
 
+      .signup-index-facebook-box
+        = link_to user_facebook_omniauth_authorize_path, method: :post do
+          %i.fab.fa-facebook-square
+          Facebookで登録する
+
+      .signup-index-google-box
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+          .main__conect__lists__google__btn
+            %i.fab.fa-google
+            Googleで登録する
       
       -# 新規ログイン画面フッター
   .signup__footer

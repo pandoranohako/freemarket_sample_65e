@@ -12,8 +12,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  def logout
+  end
+
+  require "payjp"
+  
   # POST /resource
   def create
+  params[:sns_auth] == 'true' ? params[:user][:password] = Devise.friendly_token : "";
     @user = User.new(sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
@@ -26,17 +32,38 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_address
-    @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
-    @user.build_address(@address.attributes)
-    @user.save
-    sign_in(:user, @user)
+    session["address"] = @address.attributes
+    @card = Card.new
+    render :new_card
   end
-  
+
+  def create_card
+
+    @user = User.new(session["devise.regist_data"]["user"])
+    @user.save
+    session["address"].update(user_id: @user.id) 
+    @address = Address.new(session["address"])
+    @address.save
+ 
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        sign_in(:user, @user)
+      else
+        redirect_to action: "create_card"
+      end
+    end  
+  end
+
   # GET /resource/edit
   # def edit
   #   super

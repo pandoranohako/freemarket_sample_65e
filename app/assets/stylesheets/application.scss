@@ -7,6 +7,7 @@
 @import "./address";//ログイン用scss
 @import "./payment";//ログイン用scss
 @import "./complete";//ログイン用scss
+@import "modules/signin";//ログイン用scss
 @import "config/colors"; //色の関数
 @import "config/box-sizing_border-box";
 @import "mixin/flexbox"; //flexbox用関数
@@ -26,3 +27,5 @@
 @import "modules/new_product"; //商品出品ページ
 @import "purchase/purchase.scss"; //商品購入確認ページ
 @import "purchase/done"; //商品購入後ページ
+//--------------------------------------
+@import "modules/mypage";//マイページ

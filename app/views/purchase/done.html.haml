@@ -17,15 +17,15 @@
             = image_tag "omairi_woman.png", size: "80x80"
           .buy-item__centerbox__item__bx__bbx
             .buy-item__centerbox__item__bx__name
-              お参りウーマン
+              = @product.name
             .buy-item__centerbox__item__bx__name__detail
-              ¥ 20,0000 (税込) 送料込み
+              = @product.price
       .buy-item__centerbox__info
         .buy-item__centerbox__info__price
           .buy-item__centerbox__info__price__detail
             支払い金額
           .buy-item__centerbox__info__price__price
-            ¥ 20,0000
+            = @product.price
         .buy-item__centerbox__info__submit
           = link_to "トップページへ戻る", root_path, class: 'buy__centerbox__info__button'
   .single-footer
