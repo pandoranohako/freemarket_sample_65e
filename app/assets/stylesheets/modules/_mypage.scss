@@ -280,6 +280,7 @@
     }
   }
 }
+// ログアウトページ
 .logout {
   width: 700px;
   height: 179px;
@@ -299,5 +300,72 @@
     top: 20%;
     top: 32%;
     left: 30%;
+  }
+}
+// 本人確認ページ
+.mypage-identification {
+  width: 700px;
+  background-color: #fff;
+  position: relative;
+  &__head {
+    font-size: 24px;
+    padding: 8px 24px;border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    h2 {
+      line-height: 1.4;
+    }
+  }
+  &__forms {
+    padding: 64px;
+    border-top: 1px solid #f5f5f5;
+    p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+      display: block;
+      font-size: 14px;
+    }
+    &__text-right {
+      text-align: right;
+      a {
+        color: #0099e8;
+        text-decoration: none;        
+      }
+      i {
+        color: #0099e8;
+      }
+    }
+    &__form {
+      margin: 40px 0 0;
+      label {
+        font-weight: 600;
+        display: inline-block;
+        font-size: 14px;
+      }
+      &__input {
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      &__btn {
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;        
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
   }
 }

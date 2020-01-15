@@ -50,6 +50,8 @@
                 %span.l-single-content__require 必須
                 %br/
                 = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上"
+                %p
+                  ※ 英字と数字の両方を含めて設定してください
             .l-single-sub-head
               %h3.l-single-sub-head__left-text 本人確認
               %p.l-single-sub-head__text 
@@ -81,7 +83,7 @@
               .form-text-center-on
                 %p.form-text-center 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします 
                 %br/
-                = f.submit "Next", class: 'next-btn'
+                = f.submit "次へ進む", class: 'next-btn'
               .l-single-content-text__right
                 本人情報の登録について
 

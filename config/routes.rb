@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'signup', to: 'users/registrations#index'
-    get 'addresses', to: 'users/registrations#new_address'
+    get  'signup',    to: 'users/registrations#index'
+    get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
     post 'card',      to: 'users/registrations#create_card'
-    get 'logout',      to: 'users/sessions#logout'
+    get  'logout',    to: 'users/sessions#logout'
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -36,10 +36,10 @@ Rails.application.routes.draw do
 
   resources :mypage do [:index]
     collection do
-      get 'profile'         #プロフィール
-      get 'card/show',     to: 'mypage#card_show'
-      get 'card/new',      to: 'mypage#card_new'
-      post 'card/create',  to: 'mypage#card_create'
+      get  'profile'   
+      get  'card/show',   to: 'mypage#card_show'
+      get  'card/new',    to: 'mypage#card_new'
+      post 'card/create', to: 'mypage#card_create'
       post 'card/delete', to: 'mypage#card_delete'
     end
   end

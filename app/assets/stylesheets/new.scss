@@ -271,7 +271,7 @@
               line-height: 1.5;
               font-size: 16px;
               background: #fff;
-            } 
+            }
           }
           &__password__confirmation {
             margin: 24px 0 0;
@@ -289,6 +289,11 @@
               line-height: 1.5;
               font-size: 16px;
               background: #fff;
+            }
+            p {
+              margin: 8px 0 0;
+              line-height: 1.5;              
+              color: #888;
             }
           }
           .l-single-sub-head {
