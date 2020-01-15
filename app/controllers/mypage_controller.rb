@@ -4,6 +4,7 @@ class MypageController < ApplicationController
 
   def member
   end
+  require "payjp"
 
   def telephone
   def card_new
@@ -58,6 +59,5 @@ class MypageController < ApplicationController
   end
 
   def profile
-  end
 end
 
