@@ -1,18 +1,12 @@
 class MypageController < ApplicationController
-  def new
-  end
 
-  def member
-  end
   require "payjp"
 
-  def telephone
   def card_new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "card_show" if card.exists?
   end
 
-  def address
   def card_create #payjpとCardのデータベース作成を実施します
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key) #creddential.yml.enb から呼び出せないので仮置き
     if params['payjp-token'].blank?
@@ -33,7 +27,6 @@ class MypageController < ApplicationController
     end
   end
 
-  def payment
   def card_show #Cardのデータpayjpに送り情報を取り出します
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
@@ -45,7 +38,6 @@ class MypageController < ApplicationController
     end
   end
 
-  def complete
   def card_delete #PayjpとCardデータベースを削除します
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
@@ -58,6 +50,5 @@ class MypageController < ApplicationController
       redirect_to action: "card_new"
   end
 
-  def profile
 end
 
