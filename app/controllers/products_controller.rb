@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  # before_action :set_product, except: [:index, :new, :create]
 
   def index
     @products = Product.order("created_at DESC")
@@ -17,8 +16,8 @@ class ProductsController < ApplicationController
   #データベースから、親カテゴリーのみ抽出し、配列化
         Category.where(ancestry: nil).each do |parent|
            @category_parent_array << parent.name
-        end
-     end
+            end
+  end
   
      # 以下全て、formatはjsonのみ
      # 親カテゴリーが選択された後に動くアクション
@@ -38,9 +37,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-    redirect_to root_path 
+        redirect_to root_path 
     else
-      render :new
+        render :new
     end
   end
 
@@ -56,16 +55,16 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to root_path
+        redirect_to root_path
     else
-      render :edit
+        render :edit
     end
   end
 
 
   def destroy
     @product.destroy
-    redirect_to root_path
+      redirect_to root_path
   end
 
 
