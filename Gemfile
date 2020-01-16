@@ -92,11 +92,14 @@ end
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
-
 gem 'jquery-rails'
+
+#カテゴリー
+gem 'ancestry'
 
 #クレジットカード決済
 gem 'payjp'
 
 #パンくずリスト
 gem "gretel"
+

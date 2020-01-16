@@ -15,7 +15,7 @@
       text-align:center;
       line-height: 33px;
     }
-    .buy-item {
+    .buy-item-1 {
       padding: 32px 16px;
       border-top: 1px solid #f5f5f5;
       &__box {
@@ -30,7 +30,7 @@
           margin-left: 16px;
           width: 182px;
           height: 80px;
-          &__buy-item__name {
+          &__name {
           padding: 0 0 8px;
           width: 247px;
           height: 42px;
@@ -42,7 +42,6 @@
         .buy-item__price {
           margin: 0;
           text-align: left;
-          font-size: 15px;
           font-weight: 600;
           display: flex;
           &__number {
@@ -113,7 +112,6 @@
               }
             } 
             &__info__text {
-              height: 63px;
               margin: 8px 0 20px 0;
               font-size: 14px;
               line-height: 1.5;

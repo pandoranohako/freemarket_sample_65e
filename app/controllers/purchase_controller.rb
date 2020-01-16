@@ -26,16 +26,18 @@ class PurchaseController < ApplicationController
     :customer => card.customer_id, #payjpの顧客ID
     :currency => 'jpy', #日本円
   )
-    redirect_to action: 'done' #完了画面に移動
+  reder :done
+    # redirect_to action: 'done' #完了画面に移動
   end
 
-  def done
-  end
+  # def done
+  # end
 
   private
 
   def set_product
     @product = Product.find(params[:product_id])
+    @images = @product.images.order("created_at DESC")
   end
 
 end

@@ -2,7 +2,7 @@
   .detail-container
     .detail
       %h2.detail__head
-        商品タイトル
+        = @product.name
       .detail__box
         -# 商品画像
         .detail__box__products
@@ -20,7 +20,7 @@
               %th
                 出品者
               %td
-                = @product.user.name
+                =link_to @product.user.name
                 .review
                   -# 評価数
                   %i.fas.fa-laugh-beam
@@ -101,16 +101,19 @@
           = link_to '#', class: 'detail__others__left__report' do
             %i.far.fa-flag
             不適切な商品の報告
-        = link_to '#', class: 'detail__others__right' do
-          %i.fas.fa-lock
-          あんしん・あんぜんへの取り組み
+        .detail__others__right
+          = link_to '#', class: 'detail__others__right' do
+            %i.fas.fa-lock
+            あんしん・あんぜんへの取り組み
 
-          -# ユーザーによる商品削除
-          .seller
-            %p
-            = link_to 'この商品を削除する', product_path(@product), method: :delete
+    .change-box
+      = link_to '商品の編集', "#", class: "btn-default btn-red"
+      %p.text-center
+        or
+      = link_to 'この商品を削除する', product_path(@product), method: :delete, class: "btn-default btn-gray"
 
     -# コメント
+  .wrapper
     .comment
       %p.comment__note
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -118,6 +121,7 @@
       = form_tag '/', method: :get, class: 'comment__form' do
         = text_area :item, :description, value: '', class: 'comment__form__body'
         = submit_tag "コメントする", class: 'comment__form__action'
+
 
     -# 商品ページリンク
     .prev-next
@@ -140,7 +144,7 @@
     -# 関連アイテム
     .other-items
       -# ユーザー関連アイテム
-      = link_to "出品者さんのその他の出品", '#', class: "other-items__head"
+      = link_to "#{@product.user.name}さんのその他の出品", '#', class: "other-items__head"
       .other-items__box
       = link_to "#", class: 'card' do
         .card__photo
