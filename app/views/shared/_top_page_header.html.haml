@@ -20,20 +20,25 @@
           .header__center__bottom__left__link__text
             ブランドから探す
           = icon('fas', 'tag', class: 'header__center__bottom__left__link__icon')
-      .header__center__bottom__right
-        = link_to root_path, class: 'header__center__bottom__right__link' do
-          .header__center__bottom__right__link__text
-            いいね！一覧
-          = icon('far', 'heart fa-lg', class: 'header__center__bottom__right__link__icon')
-        = link_to root_path, class: 'header__center__bottom__right__link' do
-          .header__center__bottom__right__link__text
-            お知らせ
-          = icon('far', 'bell fa-lg', class: 'header__center__bottom__right__link__icon')
-        = link_to root_path, class: 'header__center__bottom__right__link' do
-          .header__center__bottom__right__link__text
-            やることリスト
-          = icon('fa', 'check fa-lg', class: 'header__center__bottom__right__link__icon')
-        = link_to root_path, class: 'header__center__bottom__right__mypage-link' do
-          .header__center__bottom__right__mypage-link__text
-            マイページ
-          = image_tag 'logo_red.svg', class: 'header__center__bottom__right__mypage-link__image'
+      - if user_signed_in?
+        .header__center__bottom__right
+          = link_to root_path, class: 'header__center__bottom__right__link' do
+            .header__center__bottom__right__link__text
+              いいね！一覧
+            = icon('far', 'heart fa-lg', class: 'header__center__bottom__right__link__icon')
+          = link_to root_path, class: 'header__center__bottom__right__link' do
+            .header__center__bottom__right__link__text
+              お知らせ
+            = icon('far', 'bell fa-lg', class: 'header__center__bottom__right__link__icon')
+          = link_to root_path, class: 'header__center__bottom__right__link' do
+            .header__center__bottom__right__link__text
+              やることリスト
+            = icon('fa', 'check fa-lg', class: 'header__center__bottom__right__link__icon')
+          = link_to mypage_index_path, class: 'header__center__bottom__right__mypage-link' do
+            .header__center__bottom__right__mypage-link__text
+              マイページ
+            = image_tag 'logo_red.svg', class: 'header__center__bottom__right__mypage-link__image'
+      - else
+        .header__center__bottom__right
+          = link_to "新規会員登録", signup_path, class: 'header__center__bottom__right__link__signin'
+          = link_to "ログイン", new_user_session_path, class: 'header__center__bottom__right__link__session'

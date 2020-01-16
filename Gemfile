@@ -96,3 +96,10 @@ gem 'jquery-rails'
 
 #カテゴリー
 gem 'ancestry'
+
+#クレジットカード決済
+gem 'payjp'
+
+#パンくずリスト
+gem "gretel"
+

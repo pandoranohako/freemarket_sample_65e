@@ -1,0 +1,79 @@
+.buy-item__body{
+  background: #fff;
+}
+.buy-item {
+  text-align: center;
+  background: #f5f5f5;
+  &__body{
+    width: 500px;
+    margin:0 auto;
+    padding-bottom: 30px;
+  }
+  &__alert {
+    line-height: 3.5em;
+    text-align: center;
+    &__top {
+      display: flex;
+      margin-left: 150px;
+      .far.fa-clock.alert__icon {
+        color: red;
+        font-size: 40px;
+        margin-top: 15px;
+      }
+      &__text {
+        color: red;
+        margin-left: 5px;
+        line-height: 5em;
+        font-weight: bold;
+      }
+    }
+    &__bottom {
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+  &__centerbox {
+    width: 200px;
+    margin:0 auto;
+    &__head {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 50px;
+    }
+    &__item {
+      &__bx {
+        &__image {
+          margin-top: 10px;
+        }
+      &__bbx {
+        margin-top: 10px;
+        font-weight: bold;
+        &__name {
+        }
+        &__detail {
+        }
+      }
+    }
+  }
+    &__info {
+      margin-top: 10px;
+      &__price {
+        font-weight: bold;
+        padding-bottom: 20px;
+        &__detail {
+        }
+        &__price {
+        }
+      }
+      &__submit {
+        a {
+          color: #0099e8;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+}
+}

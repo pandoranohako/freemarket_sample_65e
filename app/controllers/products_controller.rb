@@ -70,7 +70,32 @@ end
 
 
 
+  def create
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.destroy
+    # 削除に成功した時の処理
+      redirect_to root_path
+      flash[:alert] = '商品を削除しました'
+    else
+    # 削除に失敗した時の処理
+      redirect_to root_path
+      flash[:alert] = '商品削除に失敗しました'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
   def show
+    @product = Product.find(params[:id])
+    @image = @product.images.order("created_at DESC")
+
   end  
 
 
@@ -81,7 +106,7 @@ def search
     format.json do
      @children = Category.find(params[:parent_id]).children
      #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
     end
   end
-end
 end
