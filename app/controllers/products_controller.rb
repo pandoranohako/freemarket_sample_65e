@@ -46,21 +46,21 @@ class ProductsController < ApplicationController
 
   private
 
-def product_params
-  params.require(:product).permit(
-    :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :user_id, :customer_id,  :category_id, :size, :brand, images_attributes: [ :image]) 
-end
-
-def edit
-end
-
-def update
-  if @product.update(product_params)
-    redirect_to root_path
-  else
-    render :edit
+  def product_params
+    params.require(:product).permit(
+      :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :user_id, :customer_id,  :category_id, :size, :brand, images_attributes: [ :image]) 
   end
-end
+
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
 
   def destroy
@@ -95,12 +95,11 @@ end
   def show
     @product = Product.find(params[:id])
     @image = @product.images.order("created_at DESC")
-
   end  
 
 
 
-def search
+  def search
   respond_to do |format|
     format.html
     format.json do
