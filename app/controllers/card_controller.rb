@@ -25,7 +25,7 @@ class CardController < ApplicationController
       if @card.save
         redirect_to action: "show"
       else
-        redirect_to action: "pay"
+        redirect_to action: "new"
       end
     end
   end
