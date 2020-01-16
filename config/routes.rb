@@ -14,6 +14,16 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #マイページ
+
+
+# --------------------------------
+  resources :products, only: [:show, :new, :edit, :destroy, :create]  do
+    #Ajaxで動くアクションのルートを作成
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
   root "products#index"
 
   resources :products, only: [:show, :new] do
@@ -24,6 +34,8 @@ Rails.application.routes.draw do
       end
     end
   end
+  # ---------------------------------------
+  # コンフリクトが起きたが、一時的に両方残す
 
   resources :card, only: [:new] do
     collection do
@@ -41,10 +53,11 @@ Rails.application.routes.draw do
       get 'identification'
     end
   end
+  
+  root 'products#index'
+
 
   resources :mypage, only: [:index, :new] do
-      get 'address'
-      get 'complete'
       get 'login'
       get 'member'
       get 'payment'
