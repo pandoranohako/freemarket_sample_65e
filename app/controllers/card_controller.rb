@@ -2,11 +2,12 @@ class CardController < ApplicationController
 
   require "payjp"
 
-  before_action :set_card, only: [:show, :delete]
+  before_action :set_card, only: [:index, :delete]
 
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
+  def index #Cardのデータpayjpに送り情報を取り出します
   end
 
   def pay #payjpとCardのデータベース作成を実施します
