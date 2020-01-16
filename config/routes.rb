@@ -24,10 +24,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card, only: [:new] do
+  resources :card, only: [:index] do
     collection do
       get  'show',   to: 'card#show'
-      # post 'pay',    to: 'card#pay'
+      get  'new',    to: 'card#new'
+      post 'pay',    to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
   end
@@ -37,10 +38,7 @@ Rails.application.routes.draw do
   resources :mypage do [:index]
     collection do
       get  'profile'   
-      get  'card/show',   to: 'mypage#card_show'
-      get  'card/new',    to: 'mypage#card_new'
-      post 'card/create', to: 'mypage#card_create'
-      post 'card/delete', to: 'mypage#card_delete'
     end
   end
+
 end
