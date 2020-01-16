@@ -2,7 +2,7 @@
   .detail-container
     .detail
       %h2.detail__head
-        商品タイトル
+        = @product.name
       .detail__box
         -# 商品画像
         .detail__box__products
@@ -20,7 +20,7 @@
               %th
                 出品者
               %td
-                = @product.user.name
+                =link_to @product.user.name
                 .review
                   -# 評価数
                   %i.fas.fa-laugh-beam
