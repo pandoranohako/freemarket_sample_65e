@@ -25,10 +25,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card, only: [:index] do
+  resources :card, only: [:index, :new] do
     collection do
       get  'show',   to: 'card#show'
-      get  'new',    to: 'card#new'
       post 'pay',    to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
@@ -38,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :mypage do [:index]
     collection do
-      get  'profile'   
+      get  'profile'
     end
   end
 
