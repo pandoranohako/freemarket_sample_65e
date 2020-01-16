@@ -1,5 +1,5 @@
 class PurchaseController < ApplicationController
-
+  
   require 'payjp'
 
   before_action :set_product, only: [:index, :pay, :done]

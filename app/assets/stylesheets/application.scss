@@ -25,6 +25,8 @@
 @import "modules/profile";
 @import "modules/breadcrumbs"; //パンくず
 @import "modules/new_product"; //商品出品ページ
+@import "purchase/purchase.scss"; //商品購入確認ページ
+@import "purchase/done"; //商品購入後ページ
 //--------------------------------------
 @import "modules/mypage";//マイページ
 @import "modules/card_new";
