@@ -44,9 +44,12 @@ class CardController < ApplicationController
     if card.blank?
       redirect_to action: "new" 
     else
+  def delete #PayjpとCardデータベースを削除します
+    unless @card.blank?
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      customer.delete
+      @card.delete
     end
   def set_card
     @card = Card.find_by(user_id: current_user.id)
