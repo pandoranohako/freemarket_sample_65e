@@ -15,14 +15,14 @@ crumb :profile do
 end
 
 # 支払い方法（新規カード登録）
-crumb :card_show do
+crumb :card_index do
   link "支払い方法", card_index_path
   parent :mypage
 end
 
 # 支払い方法（カード情報）
 crumb :card_new do
-  link "クレジットカード情報入力", card_index_path
+  link "クレジットカード情報入力", new_card_path
   parent :mypage
 end
 
