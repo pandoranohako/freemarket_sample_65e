@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
     end
   end
 
-
+  private
 
 def product_params
   params.require(:product).permit(
@@ -61,12 +61,6 @@ def update
     render :edit
   end
 end
-
-
-
-# def set_product
-#   @product = Product.find(params[:id])
-# end
 
 
   def destroy
