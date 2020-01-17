@@ -1,0 +1,8 @@
+.mypage-card {
+  background-color: rgb(245, 245, 245);
+  padding: 40px 100px 0 0;
+
+  &--flex {
+    @include flex_row_between();
+  }
+}

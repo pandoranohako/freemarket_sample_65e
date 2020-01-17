@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'signup', to: 'users/registrations#index'
-    get 'addresses', to: 'users/registrations#new_address'
+    get  'signup',    to: 'users/registrations#index'
+    get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
     post 'card',      to: 'users/registrations#create_card'
-    get 'logout',      to: 'users/sessions#logout'
+    get  'logout',    to: 'users/sessions#logout'
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -37,10 +37,9 @@ Rails.application.routes.draw do
   # ---------------------------------------
   # コンフリクトが起きたが、一時的に両方残す
 
-  resources :card, only: [:new] do
+  resources :card, only: [:index, :new] do
     collection do
-      get  'show',   to: 'card#show'
-      # post 'pay',    to: 'card#pay'
+      post 'pay',    to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
   end
@@ -49,25 +48,8 @@ Rails.application.routes.draw do
 
   resources :mypage do [:index]
     collection do
-      get 'profile'         #プロフィール
+      get  'profile'
       get 'identification'
-    end
-  end
-  
-  root 'products#index'
-
-
-  resources :mypage, only: [:index, :new] do
-      get 'login'
-      get 'member'
-      get 'payment'
-      get 'telephone'
-  end
-  
-  #商品購入
-  resources :purchase, only: [:index, :pay, :done] do
-    collection do
-      get 'done'
     end
   end
 

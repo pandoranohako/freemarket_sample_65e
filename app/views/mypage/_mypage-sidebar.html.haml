@@ -2,7 +2,8 @@
   .left-content__bar
     %ul
       %li
-        %a{href: "/mypage"} マイページ
+        = link_to mypage_index_path do
+          マイページ
         %br/
         %i.fa.fa-chevron-right
       %li
@@ -15,7 +16,8 @@
         %a いいね！一覧
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/products/new"} 出品する
+        = link_to new_product_path do
+          出品する
         %i.fa.fa-chevron-right
       %li
         %a{href: "#"} 出品した商品-出品中
@@ -57,13 +59,15 @@
     %h4 設定
     %ul.marginT-8px
       %li
-        %a{href: "/mypage/profile"} プロフィール
+        = link_to profile_mypage_index_path do
+          プロフィール
         %i.fa.fa-chevron-right
       %li
         %a{href: "#"} 住所変更
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/card"} 支払い方法
+        = link_to new_card_path do
+          支払い方法
         %i.fa.fa-chevron-right
       %li
         %a メール/パスワード
