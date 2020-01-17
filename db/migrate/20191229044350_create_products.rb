@@ -10,8 +10,8 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string     :shipping_date, null: false
       t.integer    :price,         null: false
       t.integer    :likes_count,   default: 0
-      # t.references :user,          foregin_key: true
-      # t.references :customer,      foregin_key: true
+      t.references :user,          foregin_key: true
+      t.references :customer,      foregin_key: true
       t.references :category,      foregin_key: true
       t.references :size,          foregin_key: true
       t.references :brand,         foregin_key: true
