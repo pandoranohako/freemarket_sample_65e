@@ -17,16 +17,13 @@ Rails.application.routes.draw do
 
 
 # --------------------------------
-  resources :products, only: [:show, :new, :edit, :destroy, :create]  do
+  root "products#index"
+  resources :products  do
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
-  end
-  root "products#index"
-
-  resources :products, only: [:show, :new] do
     resources :purchase, only: [:index] do
       collection do
         post 'pay', to: 'purchase#pay'
@@ -34,6 +31,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  
   # ---------------------------------------
   # コンフリクトが起きたが、一時的に両方残す
 
@@ -43,8 +41,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-
-  resources :products, only: [:destroy] 
 
   resources :mypage do [:index]
     collection do
