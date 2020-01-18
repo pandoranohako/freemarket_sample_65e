@@ -9,13 +9,13 @@
           .buy-item-1__box__image
             = image_tag "#{@images[0].image}", size: "80x80"
           .buy-item-1__box__content
-            %p.buy-item-1__name
+            %p.buy-item-1__box__content__name
               = @product.name
-            %p.buy-item-1__price
-              .buy-item-1__price__number
-              .buy-item-1__price__tax_included
+            %p.buy-item-1__box__content__price
+              .buy-item-1__box__content__number
+              .buy-item-1__box__content__tax_included
                 ¥
-                = @product.price
+                = @product.price.to_s(:delimited)
                 （税込）送料込み            
       .payment
         .payment__box
@@ -24,7 +24,7 @@
               支払い金額
             .payment__box__inner__price__right
               ¥
-              = @product.price
+              = @product.price.to_s(:delimited)
           .payment__box__inner__card
             .payment__box__inner__card__inner
               .payment__box__inner__card__inner__method

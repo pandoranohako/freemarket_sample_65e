@@ -31,29 +31,23 @@
           width: 182px;
           height: 80px;
           &__name {
-          padding: 0 0 8px;
           width: 247px;
-          height: 42px;
-          padding-bottom: 8px;
           font-size: 14px;
-          line-height: 1.5;
           text-align: left;
-        }
-        .buy-item__price {
-          margin: 0;
-          text-align: left;
-          font-weight: 600;
-          display: flex;
-          &__number {
+          }
+          &__price {
+            margin: 0;
+            text-align: left;
+            font-weight: 600;
+            display: flex;
           }
           &__tax_included {
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 600;
           }
         }
       }
     }
-  }
   }
   .payment {
     border-top: 1px solid #f5f5f5;
