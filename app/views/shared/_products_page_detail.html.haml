@@ -12,7 +12,7 @@
             .detail__box__products__image--small
               = image_tag "#{@image[0].image}"
               - @product.images.each do |i|
-                = image_tag i.image
+                = image_tag i.image.url
         -# 商品詳細表
         %table.detail__box__products
           %tbody.detail__box__products__table
@@ -20,7 +20,7 @@
               %th
                 出品者
               %td
-                =link_to @product.user.name
+                -# =link_to "#", @product.user.name
                 .review
                   -# 評価数
                   %i.fas.fa-laugh-beam
@@ -144,7 +144,7 @@
     -# 関連アイテム
     .other-items
       -# ユーザー関連アイテム
-      = link_to "#{@product.user.name}さんのその他の出品", '#', class: "other-items__head"
+      -# = link_to "#{@product.user.name}さんのその他の出品", '#', class: "other-items__head"
       .other-items__box
       = link_to "#", class: 'card' do
         .card__photo
