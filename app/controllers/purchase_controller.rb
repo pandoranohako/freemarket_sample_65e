@@ -38,6 +38,7 @@ class PurchaseController < ApplicationController
   def set_product
     @product = Product.find(params[:product_id])
     @images = @product.images.order("created_at DESC")
+    [0,1,2,3,4]
   end
 
 end

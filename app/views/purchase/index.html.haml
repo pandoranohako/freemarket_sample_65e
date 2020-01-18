@@ -7,7 +7,7 @@
       .buy-item-1
         .buy-item-1__box
           .buy-item-1__box__image
-            = image_tag @images.first.image, size: "80x80"
+            = image_tag "#{@images[0].image}", size: "80x80"
           .buy-item-1__box__content
             %p.buy-item-1__name
               = @product.name
@@ -37,15 +37,15 @@
                 - if @default_card_information.blank?
                   %br 
                 - else
-                .payment__user__info__text__text
-                  -#以下カード情報を表示
-                  = "**** **** **** " + @default_card_information.last4
-                  - exp_month = @default_card_information.exp_month.to_s
-                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-                  %br
-                  有効期限
-                  %br
-                  = exp_month + " / " + exp_year
+                  .payment__user__info__text__text
+                    -#以下カード情報を表示
+                    = "**** **** **** " + @default_card_information.last4
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    %br
+                    有効期限
+                    %br
+                    = exp_month + " / " + exp_year
             .payment__box__inner__shipping
               .payment__box__inner__shipping__inner
                 .payment__box__inner__shipping__inner__title
