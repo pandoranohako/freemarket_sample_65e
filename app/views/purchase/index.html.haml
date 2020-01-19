@@ -55,11 +55,16 @@
                   .payment__box__inner__shipping__inner__title__change
                     = link_to "変更する", root_path, class: "payment__box__inner__shipping__inner__title__change" 
                 .payment__box__inner__shipping__inner__address__text
-                  〒121-2121
+                  〒
+                  = "#{@address.postal_code}".insert(3, "-")
                   %br
-                  東京都 渋谷区 神南1丁目 18−2
+                  = @address.prefecture
+                  = @address.city
+                  -if @address.building.present?
+                    = @address.building
                   %br
-                  神南 坂
+                  = @user.family_name
+                  = @user.first_name
             .payment__box__inner__contents
               .payment__box__inner__contents__submit
                 = form_tag(action: :pay, method: :post) do
