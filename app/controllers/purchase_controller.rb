@@ -26,12 +26,12 @@ class PurchaseController < ApplicationController
     :customer => card.customer_id, #payjpの顧客ID
     :currency => 'jpy', #日本円
   )
-  reder :done
-    # redirect_to action: 'done' #完了画面に移動
+    # render :done
+    redirect_to action: 'done' #完了画面に移動
   end
 
-  # def done
-  # end
+  def done
+  end
 
   private
 
