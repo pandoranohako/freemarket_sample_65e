@@ -44,8 +44,9 @@
                     - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                     %br
                     有効期限
-                    %br
                     = exp_month + " / " + exp_year
+                    %br
+                    = image_tag 'credit-card_2.png', size: "30x24", id: 'card_2-logo'
             .payment__box__inner__shipping
               .payment__box__inner__shipping__inner
                 .payment__box__inner__shipping__inner__title
