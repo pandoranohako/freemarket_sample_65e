@@ -4,18 +4,18 @@ $(document).on('turbolinks:load', function(){
     //プレビューのhtmlを定義
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
-                    <div class="upper-box">
-                      <img src="" alt="preview">
-                    </div>
-                    <div class="lower-box">
-                      <div class="update-box">
+                        <div class="upper-box">
+                        <img src="" alt="preview">
+                        </div>
+                        <div class="lower-box">
+                        <div class="update-box">
                         <label class="edit_btn">編集</label>
-                      </div>
-                      <div class="delete-box" id="delete_btn_${count}">
+                        </div>
+                        <div class="delete-box" id="delete_btn_${count}">
                         <span>削除</span>
-                      </div>
-                    </div>
-                  </div>`
+                        </div>
+                        </div>
+                        </div>`
       return html;
     }
 
