@@ -5,6 +5,8 @@ class PurchaseController < ApplicationController
   before_action :set_product, only: [:index, :pay, :done]
 
   def index
+    @user = User.find(current_user.id)
+    @address = @user.address
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -26,18 +28,19 @@ class PurchaseController < ApplicationController
     :customer => card.customer_id, #payjpの顧客ID
     :currency => 'jpy', #日本円
   )
-  reder :done
-    # redirect_to action: 'done' #完了画面に移動
+    # render :done
+    redirect_to action: 'done' #完了画面に移動
   end
 
-  # def done
-  # end
+  def done
+  end
 
   private
 
   def set_product
     @product = Product.find(params[:product_id])
     @images = @product.images.order("created_at DESC")
+    [0,1,2,3,4]
   end
 
 end
