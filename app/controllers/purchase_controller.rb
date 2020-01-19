@@ -5,6 +5,8 @@ class PurchaseController < ApplicationController
   before_action :set_product, only: [:index, :pay, :done]
 
   def index
+    @user = User.find(current_user.id)
+    @address = @user.address
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
