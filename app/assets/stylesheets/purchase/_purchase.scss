@@ -136,23 +136,20 @@
                   }
                 }
               }
-              &__address__text {
-                margin-top: 8px;
-                font-size: 14px;
-                line-height: 1.5;
-                border-bottom: 1px solid #f5f5f5;
-                padding-bottom: 32px;
-              }
+            }
+            &__address__text {
+              margin-top: 8px;
+              font-size: 14px;
+              line-height: 1.5;
+              border-bottom: 1px solid #f5f5f5;
+              padding-bottom: 32px;
             }
           }
         }
         &__contents{
-          border-top: solid 1px #f5f5f5;
           padding-top: 20px;
           &__submit{
             border-top: solid 1px #f5f5f5;
-            font-size: 14px;
-            font-weight: 600;
             background-color: #ea352d;
             line-height: 48px;
             height: 50px;
@@ -160,8 +157,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            a{
+            &__buttun {
+              background-color: #ea352d;
               color: #FFFFFF;
+              width: 343px;
+              height: 50px;
+              padding: 0;
+              font-size: 14px;
+              font-weight: 600;
             }
           }
         }
