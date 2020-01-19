@@ -67,7 +67,7 @@
                   = @user.first_name
             .payment__box__inner__contents
               .payment__box__inner__contents__submit
-                = form_tag(action: :pay, method: :post) do
-                  = link_to '購入する', "purchase/done", class: 'payment__box__inner__contents__submit__buttun'
+                = form_with url: pay_product_purchase_index_path(@product.id), local: true do |f|
+                  = f.submit '購入する', class: 'payment__box__inner__contents__submit__buttun'
   .single-footer
     = render "shared/single-footer"
