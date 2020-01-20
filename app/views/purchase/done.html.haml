@@ -14,13 +14,13 @@
       .buy-item__centerbox__item
         .buy-item__centerbox__item__bx
           .buy-item__centerbox__item__bx__image
-            = image_tag @images.first.image, size: "80x80"
+            = image_tag "#{@images[0].image}", size: "80x80"
           .buy-item__centerbox__item__bx__bbx
             .buy-item__centerbox__item__bx__name
               = @product.name
             .buy-item__centerbox__item__bx__name__detail
               ¥
-              = @product.price
+              = @product.price.to_s(:delimited)
               （税込）送料込み
       .buy-item__centerbox__info
         .buy-item__centerbox__info__price
@@ -28,7 +28,7 @@
             支払い金額
           .buy-item__centerbox__info__price__price
             ¥
-            = @product.price
+            = @product.price.to_s(:delimited)
         .buy-item__centerbox__info__submit
           = link_to "トップページへ戻る", root_path, class: 'buy__centerbox__info__submit__button'
   .single-footer

@@ -10,9 +10,8 @@
             .detail__box__products__image--large
               = image_tag "#{@image[0].image}"
             .detail__box__products__image--small
-              = image_tag "#{@image[0].image}"
-              - @product.images.each do |i|
-                = image_tag i.image
+            - @product.images.each do |i|
+              = image_tag i.image.url
         -# 商品詳細表
         %table.detail__box__products
           %tbody.detail__box__products__table
@@ -20,7 +19,7 @@
               %th
                 出品者
               %td
-                =link_to @product.user.name
+                -# =link_to "#", @product.user.name
                 .review
                   -# 評価数
                   %i.fas.fa-laugh-beam
@@ -79,7 +78,8 @@
       -# 商品価格
       .detail__price
         %span
-          = @product.price
+          ¥
+          = @product.price.to_s(:delimited)
         %span
           （税込）
         %span
@@ -87,7 +87,7 @@
       = link_to '購入画面に進む', product_purchase_index_path(@product), class: 'detail__purchase-link'
       -# 商品説明
       .detail__description
-        商品説明のダミーテキストです
+        = @product.description
       -# その他
       .detail__others
         .detail__others__left
@@ -144,7 +144,7 @@
     -# 関連アイテム
     .other-items
       -# ユーザー関連アイテム
-      = link_to "#{@product.user.name}さんのその他の出品", '#', class: "other-items__head"
+      -# = link_to "#{@product.user.name}さんのその他の出品", '#', class: "other-items__head"
       .other-items__box
       = link_to "#", class: 'card' do
         .card__photo
