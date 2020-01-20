@@ -33,7 +33,7 @@ $(document).ready(function(){
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
@@ -63,7 +63,7 @@ $(document).ready(function(){
         //ラベルのidとforの値を変更
         if(count < 5){
           //プレビューの数でラベルのオプションを更新する
-          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+          $('.label-box').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
         }
       }
     });
@@ -78,7 +78,7 @@ $(document).ready(function(){
       $(`#preview-box__${id}`).remove();
       console.log("new")
       //フォームの中身を削除 
-      $(`#item_images_attributes_${id}_image`).val("");
+      $(`#product_images_attributes_${id}_image`).val("");
 
       //削除時のラベル操作
       var count = $('.preview-box').length;
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
       if(id < 5){
         //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
       }
     });
   });
