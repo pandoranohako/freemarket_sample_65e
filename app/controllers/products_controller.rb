@@ -70,6 +70,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @image = @product.images.order("created_at DESC")
+    @seller_name = User.find(@product.user_id)
   end  
 
   def search
