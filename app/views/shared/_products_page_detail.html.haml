@@ -109,13 +109,12 @@
           = link_to '#', class: 'detail__others__right' do
             %i.fas.fa-lock
             あんしん・あんぜんへの取り組み
-  - if user_signed_in?
-    - if @product.user_id == current_user.id
-      .change-box
-        = link_to '商品の編集', "#", class: "btn-default btn-red"
-        %p.text-center
-          or
-        = link_to 'この商品を削除する', product_path(@product), method: :delete, class: "btn-default btn-gray"
+
+    .change-box
+      = link_to '商品の編集', "#", class: "btn-default btn-red"
+      %p.text-center
+        or
+      = link_to 'この商品を削除する', product_path(@product), method: :delete, class: "btn-default btn-gray"
 
     -# コメント
   .wrapper
