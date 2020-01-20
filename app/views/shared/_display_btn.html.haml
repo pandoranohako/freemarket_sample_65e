@@ -1,4 +1,10 @@
-= link_to new_product_path, class: 'display-link' do
-  .display-link__text
-    出品
-  = icon('fas', 'camera fa-4x', class: 'display-link__icon')
+- if user_signed_in?
+  = link_to new_product_path, class: 'display-link' do
+    .display-link__text
+      出品
+    = icon('fas', 'camera fa-4x', class: 'display-link__icon')
+- else
+  = link_to new_user_session_path, class: 'display-link' do
+    .display-link__text
+      出品
+    = icon('fas', 'camera fa-4x', class: 'display-link__icon')
