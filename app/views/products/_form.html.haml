@@ -15,15 +15,15 @@
           .post__drop__box__container
             .prev-content
             .label-content
-              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+              %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
           .hidden-content
             = f.fields_for :images do |i|
               = i.file_field :image, class: "hidden-field"
-              %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-              %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-              %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-              %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
       .new-product-main__center__product
         .new-product-main__center__product--flex
           .new-product-main__center__product--flex__title
@@ -118,7 +118,7 @@
                   必須
               .new-product-main__center__price--flex__right__top__right
                 ¥
-              %input#price_calc.price_form-box{placeholder: "例) 300", type: "number",class: 'new-product-main__center__price--flex__right__top__right__text-field'}
+              = f.number_field :price, id: 'price_calc', class: 'price_form-box',placeholder: "例) 300", type: "number"
             .new-product-main__center__price--flex__right__center
               .new-product-main__center__price--flex__right__center__left
                 販売手数料(10%)
@@ -128,7 +128,7 @@
               .new-product-main__center__price--flex__right__bottom__left
                 販売利益
               .new-product-main__center__price--flex__right__bottom__right
-              = f.number_field :price, id: "price"
+              %input#price
       .new-product-main__center__bottom
         .new-product-main__center__bottom__top
           %p
