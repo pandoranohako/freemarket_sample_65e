@@ -49,20 +49,20 @@
                 必須
             .listing-select-wrapper
               .listing-select-wrapper__box
-              = f.select :category, @category_parent_array, {}, {class: 'new-product-main__center__details--flex__right__select', id: 'parent_category'}
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'new-product-main__center__details--flex__right__select', id: 'parent_category'
               .listing-product-detail__category
             .new-product-main__center__details--flex__right--flex
               .new-product-main__center__details--flex__right--flex__title
                 サイズ
               .new-product-main__center__details--flex__right--flex__necessary
                 必須
-            =f.text_field :size_id, class: 'new-product-main__center__product__text-field', placeholder: "サイズ"
+            =f.text_field :size, class: 'new-product-main__center__product__text-field', placeholder: "サイズ"
             .new-product-main__center__details--flex__right--flex
               .new-product-main__center__details--flex__right--flex__title
                 ブランド
               .new-product-main__center__details--flex__right--flex__necessary
                 任意
-            =f.text_field :brand_id, class: 'new-product-main__center__product__text-field', placeholder: "例) honda"
+            =f.text_field :brand, class: 'new-product-main__center__product__text-field', placeholder: "例) シャネル"
             .new-product-main__center__details--flex__right--flex
               .new-product-main__center__details--flex__right--flex__title
                 商品の状態
