@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
     @products = Product.order("created_at DESC")
@@ -11,11 +12,11 @@ class ProductsController < ApplicationController
     @product.images.new
   
   #セレクトボックスの初期値設定
-  @category_parent_array = ["---"]
-  #データベースから、親カテゴリーのみ抽出し、配列化
-        Category.where(ancestry: nil).each do |parent|
-           @category_parent_array << parent.name
-            end
+  # @category_parent_array = ["---"]
+  # #データベースから、親カテゴリーのみ抽出し、配列化
+  #       Category.where(ancestry: nil).each do |parent|
+  #          @category_parent_array << parent
+  #           end
   
   
      # 以下全て、formatはjsonのみ
@@ -23,7 +24,7 @@ class ProductsController < ApplicationController
      def get_category_children
         #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
 
-        @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+        @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
      end
   end  
      # 子カテゴリーが選択された後に動くアクション
@@ -44,10 +45,20 @@ class ProductsController < ApplicationController
  
 
   def edit
-  end
+    def get_category_children
+      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+
+      @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
+   end
+end  
+   # 子カテゴリーが選択された後に動くアクション
+   def get_category_grandchildren
+#選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+   end
 
   def update
-    if @product.update(product_params)
+    if @product.update(product_update_params)
         redirect_to root_path
     else
         render :edit
@@ -87,6 +98,16 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(
-      :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, images_attributes: [ :image]).merge( user_id: current_user.id)
+      :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :category_id, :size, :brand, images_attributes: [ :image]).merge( user_id: current_user.id)
+  end
+
+  def product_update_params
+    params.require(:product).permit(
+    :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :category_id, :size, :brand, images_attributes: [ :image]).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+    
   end
 end
