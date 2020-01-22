@@ -53,7 +53,7 @@ $(document).ready(function(){
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
@@ -87,7 +87,7 @@ $(document).ready(function(){
         //ラベルのidとforの値を変更
         if(count < 5){
           //プレビューの数でラベルのオプションを更新する
-          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+          $('.label-box').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
         }
       }
     });
@@ -100,7 +100,11 @@ $(document).ready(function(){
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //取得したidに該当するプレビューを削除
       $(`#preview-box__${id}`).remove();
-//新規登録時と編集時の場合分け==========================================================
+
+
+      console.log("new")
+      //フォームの中身を削除 
+      $(`#product_images_attributes_${id}_image`).val("");
 
       //新規投稿時
       //削除用チェックボックスの有無で判定
@@ -125,6 +129,7 @@ $(document).ready(function(){
         if (count == 4) {
           $('.label-content').show();
         }
+
 
         //ラベルのwidth操作
         setLabel();
