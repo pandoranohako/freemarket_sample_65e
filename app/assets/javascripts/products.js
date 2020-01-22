@@ -101,7 +101,6 @@ $(document).ready(function(){
       //取得したidに該当するプレビューを削除
       $(`#preview-box__${id}`).remove();
 //新規登録時と編集時の場合分け==========================================================
-
       //新規投稿時
       //削除用チェックボックスの有無で判定
       if ($(`#product_images_attributes_${id}__destroy`).length == 0) {
