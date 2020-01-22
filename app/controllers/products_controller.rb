@@ -10,16 +10,8 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-  
-  #セレクトボックスの初期値設定
-  # @category_parent_array = ["---"]
-  # #データベースから、親カテゴリーのみ抽出し、配列化
-  #       Category.where(ancestry: nil).each do |parent|
-  #          @category_parent_array << parent
-  #           end
-  
-  
-     # 以下全て、formatはjsonのみ
+
+     # 全て、formatはjsonのみ
      # 親カテゴリーが選択された後に動くアクション
      def get_category_children
         #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -45,6 +37,7 @@ class ProductsController < ApplicationController
  
 
   def edit
+    @product = Product.find(params[:id])
     def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
 
@@ -103,7 +96,7 @@ end
 
   def product_update_params
     params.require(:product).permit(
-    :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :category_id, :size, :brand, images_attributes: [ :image]).merge(user_id: current_user.id)
+    :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :category_id, :size, :brand).merge(user_id: current_user.id)
   end
 
   def set_product
