@@ -140,7 +140,7 @@
     -# 関連アイテム
     .other-items
       -# ユーザー関連アイテム
-      -# = link_to "#{@product.user.name}さんのその他の出品", '#', class: "other-items__head"
+      = link_to "#{@seller_name.name}さんのその他の出品", '#', class: "other-items__head"
       .other-items__box
       = link_to "#", class: 'card' do
         .card__photo
