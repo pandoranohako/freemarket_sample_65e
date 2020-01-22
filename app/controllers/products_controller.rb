@@ -34,8 +34,6 @@ class ProductsController < ApplicationController
     end
   end
 
- 
-
   def edit
     @product = Product.find(params[:id])
     def get_category_children
@@ -51,7 +49,7 @@ end
    end
 
   def update
-    if @product.update(product_update_params)
+    if @product.update(product_params)
         redirect_to action: 'show'
     else
         render :edit
@@ -91,12 +89,7 @@ end
 
   def product_params
     params.require(:product).permit(
-      :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :category_id, :size, :brand, images_attributes: [ :image]).merge( user_id: current_user.id)
-  end
-
-  def product_update_params
-    params.require(:product).permit(
-    :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :category_id, :size, :brand).merge(user_id: current_user.id)
+      :name, :description, :condition, :shipping_fee, :shipping_how, :shipping_from, :shipping_date, :price, :likes_count, :category_id, :size, :brand, images_attributes: [ :image,:_destroy,:id]).merge( user_id: current_user.id)
   end
 
   def set_product
