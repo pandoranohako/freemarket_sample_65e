@@ -31,20 +31,12 @@
             %tr
               %th カテゴリー
               %td
-                = link_to '#' do
-                  大カテゴリ
-                = link_to '#' do
-                  %i.fas.fa-chevron-right
-                  中カテゴリ
-                = link_to '#' do
-                  %i.fas.fa-chevron-right
-                  小カテゴリ
+                = link_to "#{@product.category.name}"
             %tr
               %th
                 ブランド
               %td
-                = link_to '#' do              
-                  ブランド名
+                = link_to "#{@product.brand}"
             %tr
               %th
                 商品のサイズ
@@ -148,7 +140,7 @@
     -# 関連アイテム
     .other-items
       -# ユーザー関連アイテム
-      -# = link_to "#{@product.user.name}さんのその他の出品", '#', class: "other-items__head"
+      = link_to "#{@seller_name.name}さんのその他の出品", '#', class: "other-items__head"
       .other-items__box
       = link_to "#", class: 'card' do
         .card__photo
