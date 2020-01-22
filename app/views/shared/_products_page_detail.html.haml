@@ -84,7 +84,11 @@
           （税込）
         %span
           送料込み
-      = link_to '購入画面に進む', product_purchase_index_path(@product), class: 'detail__purchase-link'
+      - if user_signed_in?
+        = link_to '購入画面に進む', product_purchase_index_path(@product), class: 'detail__purchase-link'
+      - else
+        = link_to '購入画面に進む', new_user_session_path, class: 'detail__purchase-link'
+
       -# 商品説明
       .detail__description
         = @product.description
