@@ -1,0 +1,148 @@
+.new-product-main
+  = form_for @product do |f|
+    .new-product-main__center
+      .new-product-main__center__head
+        商品の情報の入力
+      .new-product-main__center__image
+        .new-product-main__center__image--flex
+          .new-product-main__center__image--flex__title
+            出品画像
+          .new-product-main__center__image--flex__necessary
+            必須
+        .new-product-main__center__image__explanation
+          最大10枚までアップロードできます
+        .new-product-main__center__image__label__text-field
+          .post__drop__box__container
+            .prev-content
+            .label-content
+              %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :images do |i|
+              = i.file_field :image, class: "hidden-field"
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+              %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
+      .new-product-main__center__product
+        .new-product-main__center__product--flex
+          .new-product-main__center__product--flex__title
+            商品名
+          .new-product-main__center__product--flex__necessary
+            必須
+        = f.text_field :name, class: 'new-product-main__center__product__text-field', placeholder: "商品名（必須40文字まで）"
+        .new-product-main__center__product--flex
+          .new-product-main__center__product--flex__title
+            商品の説明
+          .new-product-main__center__product--flex__necessary
+            必須
+        = f.text_area :description, class: 'new-product-main__center__product__text-area', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      .new-product-main__center__details
+        .new-product-main__center__details--flex
+          .new-product-main__center__details--flex__left
+            商品の詳細
+          .new-product-main__center__details--flex__right
+            .new-product-main__center__details--flex__right--flex
+              .new-product-main__center__details--flex__right--flex__title
+                カテゴリー
+              .new-product-main__center__details--flex__right--flex__necessary
+                必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'new-product-main__center__details--flex__right__select', id: 'parent_category'
+              .listing-product-detail__category
+            .new-product-main__center__details--flex__right--flex
+              .new-product-main__center__details--flex__right--flex__title
+                サイズ
+              .new-product-main__center__details--flex__right--flex__necessary
+                必須
+            =f.text_field :size, class: 'new-product-main__center__product__text-field', placeholder: "サイズ"
+            .new-product-main__center__details--flex__right--flex
+              .new-product-main__center__details--flex__right--flex__title
+                ブランド
+              .new-product-main__center__details--flex__right--flex__necessary
+                任意
+            =f.text_field :brand, class: 'new-product-main__center__product__text-field', placeholder: "例) シャネル"
+            .new-product-main__center__details--flex__right--flex
+              .new-product-main__center__details--flex__right--flex__title
+                商品の状態
+              .new-product-main__center__details--flex__right--flex__necessary
+                必須
+            = f.select :condition,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---"}, class: 'new-product-main__center__details--flex__right__select2'
+      .new-product-main__center__shipping
+        .new-product-main__center__shipping__left
+          .new-product-main__center__shipping__left__title
+            配送について
+          %label.new-product-main__center__shipping__left__label
+            = link_to root_path, class: 'new-product-main__center__shipping__left__label__link' do
+              = icon('fas', 'question-circle', class: 'new-product-main__center__shipping__left__label__link__icon')
+        .new-product-main__center__shipping__right
+          .new-product-main__center__shipping__right--flex
+            .new-product-main__center__shipping__right--flex__title
+              配送料の負担
+            .new-product-main__center__shipping__right--flex__necessary
+              必須
+          = f.select(:shipping_fee,[["送料込み(出品者負担)"],["着払い購入者負担"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__select')
+          .new-product-main__center__shipping__right--flex
+            .new-product-main__center__shipping__right--flex__title
+              配送方法
+            .new-product-main__center__shipping__right--flex__necessary
+              必須
+          = f.select(:shipping_how,[["ゆうパック", "ゆうパック"],["クロネコヤマト", "クロネコヤマト"],["らくらくメルカリ便", "らくらくメルカリ便"],["レターパック", "レターパック"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__select')
+          .new-product-main__center__shipping__right--flex
+            .new-product-main__center__shipping__right--flex__title
+              配送元の地域
+            .new-product-main__center__shipping__right--flex__necessary
+              必須
+          =f.text_field :shipping_from, class: 'new-product-main__center__product__text-field'
+          .new-product-main__center__shipping__right--flex
+            .new-product-main__center__shipping__right--flex__title
+              発送までの日数
+            .new-product-main__center__shipping__right--flex__necessary
+              必須
+          = f.select(:shipping_date,[["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {prompt: "---"}, class: 'new-product-main__center__shipping__right__select')
+      .new-product-main__center__price
+        .new-product-main__center__price--flex
+          .new-product-main__center__price--flex__left
+            .new-product-main__center__price--flex__left__title
+            販売価格(300〜9,999,999)
+            %label.new-product-main__center__price--flex__left__label
+              = link_to root_path, class: 'new-product-main__center__price--flex__left__label__link' do
+                = icon('fas', 'question-circle', class: 'new-product-main__center__shipping__left__label__link__icon')
+          .new-product-main__center__price--flex__right
+            .new-product-main__center__price--flex__right__top
+              .new-product-main__center__price--flex__right__top--flex
+                .new-product-main__center__price--flex__right__top--flex__title
+                  価格
+                .new-product-main__center__price--flex__right__top--flex__necessary
+                  必須
+              .new-product-main__center__price--flex__right__top__right
+                ¥
+              = f.number_field :price, id: 'price_calc', class: 'price_form-box',placeholder: "例) 300", type: "number"
+            .new-product-main__center__price--flex__right__center
+              .new-product-main__center__price--flex__right__center__left
+                販売手数料(10%)
+              .new-product-main__center__price--flex__right__center__right
+                .right_bar
+            .new-product-main__center__price--flex__right__bottom
+              .new-product-main__center__price--flex__right__bottom__left
+                販売利益
+              .new-product-main__center__price--flex__right__bottom__right
+              %input#price
+      .new-product-main__center__bottom
+        .new-product-main__center__bottom__top
+          %p
+        = link_to "禁止されている出品", root_path, class: 'new-product-main__center__bottom__top__link'
+        、
+        = link_to "行為",root_path, class: 'new-product-main__center__bottom__top__link'
+        を必ずご覧ください。
+        %p
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        = link_to "偽ブランドの販売", root_path, class: 'new-product-main__center__bottom__top__link'
+        は犯罪であり処罰される可能性があります。
+        %p
+        また、出品をもちまして
+        = link_to "加盟店規約", root_path, class: 'new-product-main__center__bottom__top__link'
+        に同意したことになります。
+        = f.submit "編集する", class: 'new-product-main__center__bottom__submit-btn'
+        = f.button "もどる", onclick: "history.back()", class: 'new-product-main__center__bottom__back-btn'
