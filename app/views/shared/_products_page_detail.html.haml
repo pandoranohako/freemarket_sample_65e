@@ -181,7 +181,7 @@
               %i.far.fa-heart
               %span 2              
       -# カテゴリー関連アイテム
-      = link_to "同じカテゴリのその他の出品", '#', class: "other-items__head"
+      = link_to "#{@product.category.name} その他の出品", '#', class: "other-items__head"
       .other-items__box
       = link_to "#", class: 'card' do
         .card__photo
