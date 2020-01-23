@@ -46,7 +46,8 @@
             郵便番号
           %span.content__require 必須 
         = f.text_field :postal_code, placeholder: "例) 123-4567", class: "signup3__form__input"
-
+        %p.signup3__form__notice
+          ※ ハイフンをつけずにご入力ください
         .signup3__form
           %p
             都道府県
