@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.order("created_at DESC")
     @images =Image.all
-    @products = Product.includes(:images).order('created_at DESC')
+    @products = Product.includes(:images).order('created_at DESC').where(customer_id: nil)
   end
 
   def new
