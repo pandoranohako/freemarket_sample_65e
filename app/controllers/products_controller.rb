@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.order("created_at DESC")
     @images =Image.all
     @products = Product.includes(:images).order('created_at DESC').where(customer_id: nil)
   end
