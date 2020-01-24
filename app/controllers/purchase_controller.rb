@@ -24,11 +24,11 @@ class PurchaseController < ApplicationController
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
     Payjp::Charge.create(
-    :amount => @product.price, #支払金額
-    :customer => card.customer_id, #payjpの顧客ID
-    :currency => 'jpy', #日本円
-  )
-    # render :done
+      :amount => @product.price, #支払金額
+      :customer => card.customer_id, #payjpの顧客ID
+      :currency => 'jpy', #日本円
+    )
+    @product.update(customer_id: current_user.id)
     redirect_to action: 'done' #完了画面に移動
   end
 
